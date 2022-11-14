@@ -1,0 +1,1252 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Luoxmoooo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="个人备考整理的新华三路由交换机技术的资料">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H3CSE-RS-371笔记">
+<meta property="og:url" content="https://luoxmoooo.github.io/2022/11/15/SE371/index.html">
+<meta property="og:site_name" content="Luoxmoooo">
+<meta property="og:description" content="个人备考整理的新华三路由交换机技术的资料">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221021172621747.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221021201616258.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221023164153323.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221023170518430.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221023212805746.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221025185822970.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221025210814631.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221028151011292.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221028161503853.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221028174653156.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221028181129153.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221028181247242.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221029160957894.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221029161241708.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221029162157595.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221031152423620.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221031165134532.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221106003247600.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221107014001969.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221107021603316.png">
+<meta property="og:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221107022309667.png">
+<meta property="article:published_time" content="2022-11-14T19:34:09.271Z">
+<meta property="article:modified_time" content="2022-11-14T20:21:30.563Z">
+<meta property="article:author" content="Luoxmoooo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://luoxmoooo.github.io/img/SE371.assets/image-20221021172621747.png">
+  
+  
+  
+  <title>H3CSE-RS-371笔记 - Luoxmoooo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"luoxmoooo.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>上班</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://cdn.wallpaperhub.app/cloudcache/4/b/5/0/d/d/4b50dd1337b69c9eb2da99b4483fb9ce5263210b.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="H3CSE-RS-371笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-15 03:34" pubdate>
+          2022年11月15日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          29k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          242 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">H3CSE-RS-371笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="VLAN技术"><a href="#VLAN技术" class="headerlink" title="VLAN技术"></a>VLAN技术</h1><h3 id="VLAN技术原理"><a href="#VLAN技术原理" class="headerlink" title="VLAN技术原理"></a>VLAN技术原理</h3><h4 id="vlan端口分类"><a href="#vlan端口分类" class="headerlink" title="vlan端口分类"></a>vlan端口分类</h4><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs pf">·access：<br>	接收：未携带<span class="hljs-keyword">tag</span>帧，打上端口pvid <span class="hljs-keyword">tag</span>再接收；<br>		 携带<span class="hljs-keyword">tag</span>帧，检查vlan <span class="hljs-keyword">tag</span>是否与端口pvid一致，相同接收，反之丢弃；<br>	发送：剥离<span class="hljs-keyword">tag</span>转发；<br>	<br>·trunk：<br>	接收：未携带<span class="hljs-keyword">tag</span>帧，打上端口pvid <span class="hljs-keyword">tag</span>，检查vlan id是否出现在端口passing列表中；<br>		 携带<span class="hljs-keyword">tag</span>的帧，检查vlan id是否出现在passing列表中，有则接收； <br>	发送：检查<span class="hljs-keyword">tag</span>中vlan id是否和端口pvid一致，相同则剥离<span class="hljs-keyword">tag</span>转发，其他保留<span class="hljs-keyword">tag</span>转发<br>	passing:端口permit的vlan与交换机存在vlan的交集；<br>	<br>·hybrid：<br>	接收：未携带<span class="hljs-keyword">tag</span>帧，打上端口pvid <span class="hljs-keyword">tag</span>，检查vlan id是否出现在端口passing列表中；<br>		 携带<span class="hljs-keyword">tag</span>帧，检查<span class="hljs-keyword">tag</span>中vlan id是否出现在passing列表，出现就接收；<br>	发送：手动配置<br>		 检查<span class="hljs-keyword">tag</span>中vlan id是否与端口pvid相同，一致且出现在untagged列表中，则剥离<br>		 标签转发；不一致，且出现在<span class="hljs-keyword">tagged</span>列表中，则保留标签转发；<br>		 <span class="hljs-keyword">tag</span>与pvid相同，则剥离<span class="hljs-keyword">tag</span>转发；<br>	passing：端口<span class="hljs-keyword">tagged</span>列表中vlan与untagged列表vlan的并集，再与本机存在的vlan取交集；<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="vlan划分"><a href="#vlan划分" class="headerlink" title="vlan划分"></a>vlan划分</h4><p>常见划分方式：基于MAC、基于协议、基于IP子网、基于端口</p>
+<ul>
+<li>基于MAC：将主机MAC地址绑定到vlan</li>
+<li>基于协议：把三层协议绑定到vlan</li>
+<li>基于IP子网：把某个IP网段绑定至vlan</li>
+<li>基于端口：把端口固定绑定到vlan</li>
+</ul>
+<p><strong>划分方式优先顺序</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs armasm">基于MAC &gt; 基于协议 &gt; 基于<span class="hljs-built_in">IP</span>子网 &gt; 基于端口<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="MVRP"><a href="#MVRP" class="headerlink" title="MVRP"></a>MVRP</h4><p><strong>vlan动态注册技术：MVRP</strong></p>
+<p>定义：多vlan注册协议，用于交换机之间动态学习vlan信息</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk">·MVRP会沿着MSTP路径，单向传播到整个二层网络；<br>	<span class="hljs-regexp">//</span>vlan信息首先传递给根桥，再由根桥向其他网桥传播<br>·只能用于传播vlan信息本身，无法传播端口的vlan信息；<br>·只有在创建vlan的交换机上，才能对动态vlan进行删除；<br>	<span class="hljs-regexp">//</span>动态vlan无法直接删除，需要先删除静态vlan<br>·需要手动配置trunk端口放行动态学习的vlan；<br><br>·只有收到join消息的端口才会放行vlan<br></code></pre></td></tr></table></figure>
+
+<p>报文：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs awk">·join：<br>	-join empty：向对方注册一个还未注册的vlan<br>		<span class="hljs-regexp">//</span>将新创建的静态vlan信息，首次传递给其他交换机<br>	-join <span class="hljs-keyword">in</span>：向对方注册一个已经注册的vlan<br>		<span class="hljs-regexp">//</span>交换机收到join empty后会应对端交换机<br>	<br>·new：MSTP拓扑改变时，用来声明变化<br><br>·leave：向对方注销一个vlan<br>	<span class="hljs-regexp">//</span>当删除vlan时，向其他交换机发送vlan删除信息<br>	<br>·leaveAll：MVRP运行时，启动leaveAll定时器，当定时器超时后，向对端发送leaveAll消息<br>	<span class="hljs-regexp">//</span>leaveAll消息用来通知删除所有vlan，周期性清除网络中无用vlan<br>	<span class="hljs-regexp">//</span>leave计时器超时前，收到对方vlan的join消息，则保留该vlan，否则删除该vlan<br></code></pre></td></tr></table></figure>
+
+<p>计时器：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql">·<span class="hljs-keyword">period</span>计时器：<br>	MVRP有消息时不会立即发出，会等待<span class="hljs-keyword">period</span>计时器超时后，将周期时间内积攒的消息一并发出；<br>	默认<span class="hljs-number">100</span>厘秒<br>	<br>·<span class="hljs-keyword">join</span>计时器：<br>	向对方发送<span class="hljs-keyword">join</span>消息后，启动<span class="hljs-keyword">join</span>计时器，计时器超时后未收到对方关于同一个vlan的<span class="hljs-keyword">join</span>消息，则重新发送该<span class="hljs-keyword">join</span>消息；<br>	默认<span class="hljs-number">20</span>厘秒<br>	<span class="hljs-number">20</span> <span class="hljs-operator">&lt;</span> <span class="hljs-keyword">join</span> <span class="hljs-operator">&lt;</span> <span class="hljs-number">1</span><span class="hljs-operator">/</span><span class="hljs-number">2</span>leave<br>	<br>·leave计时器：<br>	收到leave消息、收发leaveAll消息后，启动该计时器；<br>	计时器超时前收到对方该vlan的<span class="hljs-keyword">join</span>消息，则该vlan不被注销；反之注销该vlan<br>	默认<span class="hljs-number">60</span>厘秒<br>	<span class="hljs-number">2</span><span class="hljs-operator">*</span><span class="hljs-keyword">join</span> <span class="hljs-operator">&lt;</span> leave <span class="hljs-operator">&lt;</span> leaveAll<br>	<br>·leaveAll计时器：<br>	最大<span class="hljs-number">32760</span>厘秒<br>	默认<span class="hljs-number">1000</span>厘秒<br></code></pre></td></tr></table></figure>
+
+<p>MVRP端口模式：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-number">1</span>. <span class="hljs-attribute">normal</span>模式：<br>	可以传递、动态学习所有vlan；<br>	默认模式<br>	<br><span class="hljs-number">2</span>. fixed模式：<br>	只会传递vlan <span class="hljs-number">1</span>和本机静态vlan，不动态学习vlan；<br>	<br><span class="hljs-number">3</span>. forbidden模式：<br>	只会传递vlan <span class="hljs-number">1</span>，相当于不参与MVRP<br></code></pre></td></tr></table></figure>
+
+<p>MVRP配置：</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs csharp">·全局开启MVRP<br>[<span class="hljs-meta">h3c</span>]mvrp <span class="hljs-keyword">global</span> enable<br><br>·端口启动MVRP<br>[<span class="hljs-meta">h3c-g1/0/1</span>]mvrp enable<br><br>·选择MVRP注册模式<br>[<span class="hljs-meta">h3c-g1/0/1</span>]mvrp registration &#123; <span class="hljs-keyword">fixed</span> | forebidden | normal&#125;<br></code></pre></td></tr></table></figure>
+
+<p>例子</p>
+<p><img src="/img/SE371.assets/image-20221021172621747.png" srcset="/img/loading.gif" lazyload alt="image-47"></p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">[2]dis port trunk<br>Interface             PVID    VLAN Passing<br>GE1/0/1               1       1, 10<br><span class="hljs-section">GE1/0/2               1       1, 30</span><br><span class="hljs-section">--------------------------------------------------------</span><br>[1]dis port trunk<br>Interface             PVID    VLAN Passing<br><span class="hljs-section">GE1/0/1               1       1, 10, 30</span><br><span class="hljs-section">--------------------------------------------------------</span><br>[3]dis port trunk<br>Interface             PVID    VLAN Passing<br><span class="hljs-section">GE1/0/1               1       1, 10, 30</span><br><span class="hljs-section">--------------------------------------------------------</span><br><br><span class="hljs-comment">//运行MVRP的对象实体是接口，而不是交换机</span><br><span class="hljs-comment">//只有收到某vlan的join消息，接口才会放行该vlan</span><br><span class="hljs-comment">//将交换机物理端口加入到动态vlan后，该动态vlan在此交换机上会转变为静态vlan，并且向其他接口发送该vlan的join消息</span><br><br><span class="hljs-code">--------------------------------------------------------</span><br><span class="hljs-code">[3-GigabitEthernet1/0/2]port access vlan 10</span><br><span class="hljs-code">The specified dynamic VLANs have been changed to static VLANs.</span><br><span class="hljs-code">//特殊动态vlan已经转变为静态vlan</span><br><span class="hljs-code">--------------------------------------------------------</span><br>[2]dis port trunk<br>Interface             PVID    VLAN Passing<br>GE1/0/1               1       1, 10<br>GE1/0/2               1       1, 10, 30<br><span class="hljs-comment">//此时再次查看trunk消息，会发现g1/0/2端口收到vlan10的join消息</span><br>--------------------------------------------------------<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="VLAN扩展技术"><a href="#VLAN扩展技术" class="headerlink" title="VLAN扩展技术"></a>VLAN扩展技术</h3><h4 id="Private-vlan"><a href="#Private-vlan" class="headerlink" title="Private vlan"></a>Private vlan</h4><p>前景：vlan数量最大为4094，为解决vlan数量不够用的问题引入private vlan私有vlan技术。</p>
+<img src="/img/SE371.assets/image-20221021201616258.png" srcset="/img/loading.gif" lazyload alt="image-2058" style="zoom:80%;" />
+
+<p>利用hybrid端口特性，用户vlan之间相互隔离，解决汇聚层vlan数量不够问题。同时上层设备无法感知到下层vlan。</p>
+<p>缺点：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">1. 汇聚上层设备访问底层客户端的每个数据帧都会在接入层进行广播，虽然不影响通信，但造成交换机负载增加，带宽浪费。<br><br>解释：<br><span class="hljs-code">	当汇聚上层设备访问客户机PC1时，数据帧到达接入交换机vlan 100内；</span><br><span class="hljs-section">	此时PC1的MAC地址在vlan 10内，所以vlan 100内不存在PC1的MAC地址，交换机就会对该数据帧进行广播处理，导致所有的客户机PC都会收到这个数据帧。</span><br><span class="hljs-section">----------------------------------------------------------------------------------</span><br>2. 所有从vlan的主机地址必须是同一个网段，导致PC之间三层互访不可达；<br><br>解释：<br><span class="hljs-code">	PC1 ping PC2时，发现PC2的IP地址和自己在同一个网段，判断为二层转发，不进行三层转发；</span><br><span class="hljs-code">    此时出现二层、三层都无法互通；</span><br><span class="hljs-code">    PC1进行ARP广播，但由于vlan隔离，PC2无法收到ARP请求；</span><br></code></pre></td></tr></table></figure>
+
+<p>解决：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs stata">1.<span class="hljs-keyword">MAC</span>地址同步技术：<br>	将从vlan中学习到的<span class="hljs-keyword">MAC</span>地址，复制到主vlan中；<br>	同样，主vlan学习到的<span class="hljs-keyword">MAC</span>地址，也会同步到所有从vlan中。<br>	<br>2.本地ARP代理：<br>	当上行设备上的网关收到从vlan客户端发来的ARP请求，会以网关<span class="hljs-keyword">mac</span>地址为源地址，再次发起ARP请求；<br>	网关收到ARP应答后，将自己的<span class="hljs-keyword">MAC</span>作为从vlan客户端的ARP应答，告诉从vlan客户端访问其他从vlan客户端时，直接访问网关。<br>	<br>	例子：<br>	PC1 访问 PC2时，ARP请求报文发送到在汇聚层的网关；<br>	网关以自己<span class="hljs-keyword">MAC</span>为源地址，再次发起APR请求；<br>	PC2回应网关ARP应答报文；<br>	网关活得PC2的<span class="hljs-keyword">MAC</span>地址，将自己的<span class="hljs-keyword">MAC</span>地址作为ARP应答报文，发送给PC1；<br>	随后PC1访问PC2的路径：PC1 - 网关 - PC2.<br></code></pre></td></tr></table></figure>
+
+<p>原理：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> primary vlan连接上行设备；<br><span class="hljs-bullet">2.</span> secondary vlan连接下行终端；<br><span class="hljs-bullet">3.</span> 对于上行设备，从vlan不可见；<br><span class="hljs-bullet">4.</span> 上行、下行接口都使用hybrid类型；上行放通所有从vlan和主vlan；下行只放通主vlan和对应从vlan；<br><span class="hljs-bullet">5.</span> 使用MAC地址同步技术：主从vlan学习到的MAC地址相互同步；<br><span class="hljs-bullet">6.</span> 在上行设备设置本地ARP代理，实现从vlan之间互通；<br></code></pre></td></tr></table></figure>
+
+<p>配置命令：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-number">1.</span> 创建主从vlan：<br><span class="hljs-string">[h3c]</span>vlan <span class="hljs-number">100</span><br><span class="hljs-string">[h3c]</span>vlan <span class="hljs-number">10</span><br><span class="hljs-string">[h3c]</span>vlan <span class="hljs-number">20</span><br><br><span class="hljs-number">2.</span> 配置primary vlan：<br><span class="hljs-string">[h3c-vlan10]</span><span class="hljs-keyword">private</span>-vlan primary<br><br><span class="hljs-number">3.</span> 配置映射关系：<br><span class="hljs-string">[h3c-vlan10]</span><span class="hljs-keyword">private</span>-vlan secondary <span class="hljs-number">10</span> <span class="hljs-number">20</span><br><br><span class="hljs-number">4.</span> 配置上行端口：<br><span class="hljs-string">[h3c-g1/0/1]</span> port <span class="hljs-keyword">private</span>-vlan <span class="hljs-number">100</span> [trunk] promiscuous<br><br><span class="hljs-number">5.</span> 配置下行端口：<br><span class="hljs-string">[h3c-g1/0/2]</span> port access vlan <span class="hljs-number">10</span><br><span class="hljs-string">[h3c-g1/0/2]</span> port <span class="hljs-keyword">private</span>-vlan &#123;host | trunk secondary&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Super-vlan"><a href="#Super-vlan" class="headerlink" title="Super vlan"></a>Super vlan</h4><p>解决某些2.5层交换机的三层vlan接口数量限制问题，提供一个共享的三层网关（部分设备允许创建4094个vlan，但限制vlan的逻辑接口只能创建一个）</p>
+<p>原理：</p>
+<p>多个sub vlan共用一个super vlan三层接口作为网关；sub vlan还是同一个网段；</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">·<span class="hljs-keyword">super</span> vlan：<br>	<span class="hljs-number">1.</span> 只建立三层接口；<br>	<span class="hljs-number">2.</span> 不包含任何物理端口；<br>	<span class="hljs-number">3.</span> 给若干sub vlan提供三层转发服务；<br>	<span class="hljs-number">4.</span> trunk端口默认不放行<span class="hljs-keyword">super</span> vlan；<br>	<br>·sub vlan：<br>	<span class="hljs-number">1.</span> 只映射物理端口；<br>	<span class="hljs-number">2.</span> 不能建立三层vlan端口；<br>	<span class="hljs-number">3.</span> 三层交换使用<span class="hljs-keyword">super</span> vlan的三层接口；<br>	<span class="hljs-number">4.</span> sub vlan间的通信通过<span class="hljs-keyword">super</span> vlan接口的本地代理arp实现；<br></code></pre></td></tr></table></figure>
+
+<p>配置：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-number">1.</span> 配置<span class="hljs-keyword">super</span> vlan<br><span class="hljs-string">[swa-vlan 100]</span><span class="hljs-keyword">super</span> vlan<br><br><span class="hljs-number">2.</span> 建立<span class="hljs-keyword">super</span> vlan和sub vlan映射关系<br><span class="hljs-string">[swa-vlan 100]</span>subvlan <span class="hljs-number">10</span> <span class="hljs-number">20</span><br><br><span class="hljs-number">3.</span> 开启本地代理ARP<br><span class="hljs-string">[swa-vlan-interface10]</span>local-proxy-arp enable<br><br><span class="hljs-number">4.</span> 配置<span class="hljs-keyword">super</span> vlan三层端口ip<br><span class="hljs-string">[swa-vlan-interface10]</span>ip address <span class="hljs-number">10.0</span><span class="hljs-number">.0</span><span class="hljs-number">.254</span> <span class="hljs-number">24</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="VLAN路由"><a href="#VLAN路由" class="headerlink" title="VLAN路由"></a>VLAN路由</h3><h4 id="vlan路由的实现"><a href="#vlan路由的实现" class="headerlink" title="vlan路由的实现"></a>vlan路由的实现</h4><ol>
+<li><p>路由器</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">路由器到各个vlan之间都必须有单独的物理接口和物理连接；<br>缺点：路由器端口数量有限<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>802.1Q和子接口</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">802.1q：单臂路由<br><span class="hljs-code">	通过将一条物理链路划分为若干逻辑子接口，并且将子接口与不同的vlan绑定，实现不同vlan使用同一根物理链路完成路由转发；</span><br><span class="hljs-code"></span><br>缺点：所有vlan都经过同一根物理链路，可靠性差，对链路带宽要求高<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>三层交换机</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">三层交换机以内置的三层路由转发引擎执行vlan间路由功能；<br>三层交换机转发速率比传统路由器更快；<br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="匹配转发机制"><a href="#匹配转发机制" class="headerlink" title="匹配转发机制"></a>匹配转发机制</h4><ol>
+<li><p>最长匹配转发模型</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">缺点：每个数据包都需要遍历路由表，查找整个路由表找到最长掩码的匹配路由，导致路由器路由转发性能低下；<br><br>原理：<br>	根据报文的目的ip地址，与路由表表项进行子网掩码and运算；<span class="hljs-regexp">//</span>得出子网地址<br>	若计算出的子网地址与表项中网络地址相同，选择所有匹配项中掩码最长的为最佳匹配项；<br>	报文根据表项对于的出接口转发；<br>	找不到匹配项则按照默认路由转发；<span class="hljs-regexp">//</span>不存在默认路由则丢弃数据包<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>交换机精确匹配转发</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs armasm">·CPU维护路由表<br>·ASIC芯片完成路由转发功能	<span class="hljs-comment">//该芯片专门负责路由转发</span><br>·对数据报进行一次路由后，生成具体地址的转发表项，后续直接根据此表项进行精确匹配转发<br><br>缺点：对每个目的<span class="hljs-built_in">IP</span>生成转发表项，任意造成表项规模庞大，资源消耗大；<br>	 不能适应网络动荡环境，容易收到目的<span class="hljs-built_in">IP</span>变化的报文攻击，造成IPFDB表项爆满；<br><br>转发流程：<br>	<span class="hljs-number">1</span>. 数据帧进入交换机，检查目的MAC地址是否为vlan三层接口地址；<br>		<span class="hljs-comment">//判断该数据帧是否进行三层转发；</span><br>		<span class="hljs-comment">//若为二层转发，直接检查MAC表项，在vlan内转发</span><br>	<span class="hljs-number">2</span>. 检查IPFDB表（<span class="hljs-built_in">IP</span>转发数据表）<br>		<span class="hljs-comment">//IPFDB表内包含了二三层信息，目的MAC，目的IP，出接口信息</span><br>		<span class="hljs-comment">//该表的作用：实现二层、三层转发一次完成</span><br>	<span class="hljs-number">3</span>. 查找FIB表<br>	<span class="hljs-number">4</span>. 查找路由表<br>	<span class="hljs-number">5</span>. 查找ARP表<br>	<span class="hljs-number">6</span>. 将查询到的目的<span class="hljs-built_in">IP</span>、目的MAC、下一跳<span class="hljs-built_in">IP</span>、下一跳MAC、出接口信息刷新至IPFDB<br></code></pre></td></tr></table></figure>
+
+<p>表项：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">IPFDB表：ASIC芯片维护<br>	负责三层交换机的数据包三层转发；<br>	表项内容来源于<span class="hljs-meta">CPU</span>维护的路由表、ARP表、MAC表；<br>	表内容：目的<span class="hljs-built_in">IP</span>，目的MAC，下一跳<span class="hljs-built_in">IP</span>，下一跳MAC，出接口<br>	//此时的<span class="hljs-built_in">IP</span>地址不携带掩码信息，每一个目的<span class="hljs-built_in">IP</span>都会生成对应的表项信息<br><br>FIB表：<span class="hljs-meta">CPU</span>维护<br>	记录目的下一跳<span class="hljs-built_in">IP</span>、MAC和出接口信息<br></code></pre></td></tr></table></figure>
+
+<p>转发流程：</p>
+<p><img src="/img/SE371.assets/image-20221023164153323.png" srcset="/img/loading.gif" lazyload alt="image-20223"></p>
+</li>
+<li><p>交换机最长匹配转发</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs armasm">·基于硬件的最长匹配的三层交换技术；<br>·所有报文的转发都通过硬件快速匹配完成转发；<br>·硬件三层表项中同时包含了<span class="hljs-built_in">IP</span>地址、子网掩码信息，能够适应网络频繁波动情况；<br></code></pre></td></tr></table></figure>
+
+<p>不同点：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">最长匹配转发的l3 <span class="hljs-selector-tag">table</span>表、def_ip表都由ASIC芯片维护；降低CPU工作负荷；<br>表项内容增加了子网掩码部分；<br></code></pre></td></tr></table></figure>
+
+<p>表项：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stata">1. L3 <span class="hljs-keyword">table</span>：<br>	表项内容：目的<span class="hljs-keyword">MAC</span>，目的IP（带掩码），下一跳<span class="hljs-keyword">MAC</span>，下一跳IP。出接口<br>	<br>2. DEF_IP：交换机最长地址硬件匹配表<br>	保存了目的网段路由的下一跳和出接口等信息，还包括vlan的默认路由；<br></code></pre></td></tr></table></figure>
+
+<p>转发流程：</p>
+<p><img src="/img/SE371.assets/image-20221023170518430.png" srcset="/img/loading.gif" lazyload alt="image-230"></p>
+</li>
+</ol>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">·使用vlan三层接口进行路由转发时，各三层交换机的接口仍然是二层端口；<br>	<span class="hljs-regexp">//</span>华三交换机默认开启生成树，注意生成树对网络的影响<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h1><h3 id="STP"><a href="#STP" class="headerlink" title="STP"></a>STP</h3><h4 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">STP消除链路层环路的基本思想是将网络拓扑修剪为树形拓扑：<br>1.选择树根节点；<br>2.确定最短路径；<br>3.阻塞冗余链路<br></code></pre></td></tr></table></figure>
+
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ol>
+<li><p>角色：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stata">根桥：优先级最高的网桥；<br>指定桥：负责一个物理段上数据转发任务的网桥；<br><br>根端口：网桥上离根桥最近的端口，有且只有一个；<br>指定端口：物理段上属于指定桥的端口，负责向物流段传输数据流量；<br><span class="hljs-keyword">AP</span>候补端口：作为根端口、指定端口的备份，默认处于blocking状态；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>桥ID：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">桥ID：桥优先级+<span class="hljs-keyword">MAC</span>地址<br>桥优先级默认：32768<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>Port ID：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">port id：优先级+端口id<br><span class="hljs-regexp">//</span>优先级<span class="hljs-number">0</span>-<span class="hljs-number">240</span><br><span class="hljs-regexp">//</span>步长<span class="hljs-number">16</span>，默认<span class="hljs-number">128</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>路径开销：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown">·用来衡量桥与桥之间的优劣<br>·STP中每条链路都具有开销值<br>·路径开销对于路径上全部链路开销之和<br><br>开销标准：<br><span class="hljs-bullet">	1.</span> 802.1d-1998<br><span class="hljs-bullet">	2.</span> 802.1t<br><span class="hljs-bullet">	3.</span> 私有标准（默认）<br><span class="hljs-code">	//跨厂商设备连接时，需要将开销标准修改为国际公认标准</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>BPDU：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 配置BPDU：用来进行生成树计算、拓扑维护<br><span class="hljs-bullet">2.</span> TCN BPDU：当拓扑改变时，用来通知相关设备网络拓扑变化<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs scss">*配置BPDU：<br>	<span class="hljs-number">1</span>. 由根桥周期性发出，发送周期为hello <span class="hljs-selector-tag">time</span>，默认<span class="hljs-number">2s</span>；<span class="hljs-comment">//只有根桥能产生配置BPDU</span><br>	<span class="hljs-number">2</span>. 基于二层组播方式发送，目的地址为<span class="hljs-number">01</span>-<span class="hljs-number">80</span>-c2-<span class="hljs-number">00</span>-<span class="hljs-number">00</span>-<span class="hljs-number">00</span>；<br>	<span class="hljs-number">3</span>. 端口保存配置BPDU信息的老化时间为max age；<br><br>*载荷内：<br>	root <span class="hljs-built_in">id</span>(根桥id)、<br>	root path <span class="hljs-built_in">cost</span>(根路径开销)、<br>	bridge <span class="hljs-built_in">id</span>(自己的桥id)、<br>	port <span class="hljs-built_in">id</span>(端口id)<br><span class="hljs-comment">//称为STP优先级向量</span><br><br>在STP中flag字段中，只使用了<span class="hljs-number">0</span>位TC，<span class="hljs-number">7</span>位TCA，<span class="hljs-number">1</span>-<span class="hljs-number">6</span>位保留<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221023212805746.png" srcset="/img/loading.gif" lazyload alt="image-46"></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">TCA\TC置位的配置BPDU：<br>	·TCA BPDU：<br>		对下游发送的TCN BPDU的确认、回应<br>	·TC BPDU：<br>		根桥用来通知所有网桥拓扑发生变化，促使设备MAC地址存活时间缩减<span class="hljs-regexp">//</span>默认减少至<span class="hljs-number">15</span>s<br></code></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk">TCN BPDU：用来通知根桥网络拓扑改变<br>	*触发条件：<br>		<span class="hljs-number">1</span>. 有端口转变为forwarding状态，并且该网桥至少包含一个指定该端口；<br>		<span class="hljs-number">2</span>. 有端口从forwarding状态、learning状态转变为blocking状态；<br><br>	·报文结构：<br>		与配置BPDU基本相同，但载荷payload部分组成简单：协议id、协议版本、BPDU类型<br><br><span class="hljs-regexp">//</span>TCN BPDU也是周期性发送，直到收到TCA BPDU才停止发送TCN BPDU<br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="计算过程"><a href="#计算过程" class="headerlink" title="计算过程"></a>计算过程</h4><ol>
+<li><p>BPDU比较原则</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">优先级向量最小者最优：<br><span class="hljs-bullet">1.</span> 比较root bridge id；<br><span class="hljs-bullet">2.</span> 比较RPC；<br><span class="hljs-bullet">3.</span> 比较designate bridge id；<br><span class="hljs-bullet">4.</span> 比较designate port id；<br><span class="hljs-bullet">5.</span> 比较接收BPDU的端口id。<br>//从上往下顺序比较，都是以小为优<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>根桥选举（与端口角色同时进行）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">主要思想：寻找最小桥ID<br><span class="hljs-number">1</span>. 网络初始化，网桥以自己为根桥，从所有端口发出配置BPDU；<br><span class="hljs-number">2</span>. 网桥比较接收到的配置BPDU，选择最优的配置BPDU更新自己保存的配置BPDU；<span class="hljs-regexp">//</span>比较根桥ID<br><span class="hljs-number">3</span>. 网桥周期性传递配置BPDU，最终实现全网配置BPDU比较；<br><br><span class="hljs-regexp">//</span>选举速度：两层<span class="hljs-number">0</span>s，三层<span class="hljs-number">2</span>s，四层<span class="hljs-number">4</span>s<br><span class="hljs-regexp">//</span>根据forward delay <span class="hljs-number">15</span>s计算，最多支持<span class="hljs-number">9</span>层网络<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>端口角色选举</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk">·根端口：网桥上距离根桥最近的端口<br>	网桥端口收到配置BPDU，获取RPC与接收端口的链路开销相加，得到端口的RPC值；<br>	网桥比较所有端口的RPC值，拥有RPC最小值的端口选举为根端口；<br>	<br>	<span class="hljs-regexp">//</span>根端口负责接收根桥发来的数据<br>	<span class="hljs-regexp">//</span>forward delay <span class="hljs-number">15</span>s计算，最多支持<span class="hljs-number">8</span>层网络<br>	<span class="hljs-regexp">//</span>网络层级越多，生成树计算越复杂越费时间<br>	<br>·指定端口：负责向物理链路的数据转发的端口<br>	网桥对比端口发出的配置BPDU和端口接收的配置BPDU；<br>	网桥端口发出的配置BPDU更优，则该物理段选择此端口作为指定端口；<br>	<br>	<span class="hljs-regexp">//</span>STP初始化时，端口默认为指定端口<br>	<br>·alternate端口：阻塞端口<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>低优先级配置BPDU处理（指定端口）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">配置BPDU由根桥产生和发出，非根桥网桥只负责传递配置BPDU；<br>当网络中添加新设备时，网桥从·指定端口·收到低优先级的配置BPDU：<br>	<span class="hljs-number">1</span>. 网桥立刻回应新设备一个配置BPDU；	<span class="hljs-regexp">//</span>网络端口上都保存了当前最优的配置BPDU<br>	<span class="hljs-number">2</span>. 当端口保存的配置BPDU生存期超时，重新进行STP计算；	<span class="hljs-regexp">//</span>默认<span class="hljs-number">20</span>s<br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="端口状态"><a href="#端口状态" class="headerlink" title="端口状态"></a>端口状态</h4><ol>
+<li><p>临时环路问题：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs applescript">当拓扑结构发送变化时，新的配置BPDU需要经过一定时延后才能传播至全网；<br>因此，当网桥收到变化信息之前，可能会产生临时环路；<br><br>如下图：<br>	swc与根桥之间出现新链路，导致swc的根端口切换至新链路上；<br>	此时根桥需要将拓扑变化通知到全网，需要经过hello <span class="hljs-built_in">time</span>时间，才能将变化通知到全网；<br>	于是在这个hello <span class="hljs-built_in">time</span>内，swc上就存在了环路；<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221025185822970.png" srcset="/img/loading.gif" lazyload alt="image-202970"></p>
+</li>
+<li><p>端口状态：</p>
+<p>避免临时环路产生，当端口处于中间状态时（listening、learning），不能进行数据收发；</p>
+<table>
+<thead>
+<tr>
+<th align="center">端口状态</th>
+<th align="center">收发配置BPDU</th>
+<th align="center">MAC地址学习</th>
+<th align="center">收发数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">disable</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">blocking</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">listening</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">learning</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">forwarding</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>forward delay延时：</p>
+<p>根据hello time以及网络直径综合计算得到，用于确保配置BPDU有足够的时间传播全网。</p>
+<p>listening状态：延时确保网桥完成端口角色的确定；</p>
+<p>learning状态：延时确保网桥有足够时间进行MAC地址学习，减少未知单播造成的广播；</p>
+<p>//网络直径：网络中两台距离最远设备的中间跳数</p>
+<p>//默认forward delay时间为15s</p>
+</li>
+</ol>
+<h4 id="拓扑改变处理"><a href="#拓扑改变处理" class="headerlink" title="拓扑改变处理"></a>拓扑改变处理</h4><p>MAC地址更新不及时：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arduino">链路中断后导致alternate端口在max age内没有收到配置BPDU，自动清除端口保存的配置BPDU；<br>alternate端口自动转变为指定端口，经过<span class="hljs-number">2</span>*forward delay时间后进入forwarding状态；<br><br>默认MAC地址老化时间为<span class="hljs-number">300</span>s，虽然链路故障解决，但网络中所有交换机学习到的MAC地址还是旧的；导致无法恢复通信；<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221025210814631.png" srcset="/img/loading.gif" lazyload alt="image-2031"></p>
+<p>解决办法：</p>
+<p>STP使用TCN BPDU报文，通知网络拓扑改变和修改MAC地址生存周期，实现加速收敛；</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown">处理过程：<br><span class="hljs-bullet">	1.</span> 网桥感知拓扑变化，从根端口发出TCN BPDU；<br><span class="hljs-bullet">    2.</span> 上游收到TCN BPDU后，将下一个配置BPDU的TCA置为，作为TCN BPDU的回应；<br><span class="hljs-bullet">    3.</span> 上游向根桥转发TCN BPDUD；<br><span class="hljs-bullet">    4.</span> 根桥收到TCN BPDU，回复TCA BPDU，并且将配置BPDU的TC置为，通知网桥拓扑变化；<br><span class="hljs-bullet">    5.</span> 其他网桥收到TC BPDU后，修改MAC地址老化时间由300s缩短为forward delay;<br>   <br>//最终收敛速度：max age + 2<span class="hljs-emphasis">*forward delay = 20s + 30s = 50s（最长）</span><br><span class="hljs-emphasis">//接口配置BPDU老化20s，阻塞端口进入转发状态2*</span>15s，其中包含了15s的mac地址老化<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. 收敛速度<span class="hljs-number">50</span>s：根桥故障<br>	网桥在<span class="hljs-number">20</span>s的max age后，判断根桥故障，重新进行根桥选举；<br>	<span class="hljs-regexp">//</span><span class="hljs-number">20</span>s + forward delay*<span class="hljs-number">2</span> = <span class="hljs-number">50</span>s（包含<span class="hljs-number">15</span>s的mac地址老化）<br>	<br><span class="hljs-number">2</span>. 收敛速度<span class="hljs-number">30</span>s：链路故障<span class="hljs-regexp">/指定端口故障/</span>新增链路<br>	网桥无法从指定端口收到配置BPDU，判断根桥丢失；<br>	网桥以自己为根桥向外发送配置BPDU；<br>	其他网桥收到低优先级配置BPDU后，立即回应高优先级配置BPDU,立刻选出新的指定端口；<br>	<span class="hljs-regexp">//</span><span class="hljs-number">2</span>s + <span class="hljs-number">2</span>*forward delay = <span class="hljs-number">30</span>s(hello time忽略)<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="协议缺点"><a href="#协议缺点" class="headerlink" title="协议缺点"></a>协议缺点</h4><ol>
+<li><p>收敛时间过长：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">·端口从中间状态到转发状态必须要经过30s的时延，期间无法进行数据转发；对于时延敏感的应用不可接受<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>收敛机制不灵活：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">·用户主机频繁上下线，触发TCN BPDU报文产生，导致网桥<span class="hljs-keyword">MAC</span>地址老化时间缩短；<br>·频繁刷新<span class="hljs-keyword">MAC</span>地址表，导致网络中会出现未知单播造成的广播报文；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>不能适应网络波动频繁环境：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">·网络波动频繁，用户主机频繁上下线，都会导致STP重新<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>不能实现数量流量在vlan间负载分担</p>
+</li>
+</ol>
+<hr>
+<h3 id="RSTP"><a href="#RSTP" class="headerlink" title="RSTP"></a>RSTP</h3><h4 id="区别STP"><a href="#区别STP" class="headerlink" title="区别STP"></a>区别STP</h4><p>RSTP：快速生成树协议802.1w，消除环路的基本思想与STP一致。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">主要区别：<br><span class="hljs-bullet">	1.</span> 减少了端口状态<br><span class="hljs-bullet">	2.</span> 增加了端口角色<br><span class="hljs-bullet">	3.</span> 配置BPDU格式、发送方式改变<br><span class="hljs-bullet">	4.</span> 拓扑收敛机制不同<br></code></pre></td></tr></table></figure>
+
+<h4 id="网络直径"><a href="#网络直径" class="headerlink" title="网络直径"></a>网络直径</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs arduino">网络直径：网络中任意两台设备之间交换机数目的最大值<br>	·改变网络直径会间接影响到max age、forward delay定时器参数<br>	·通过改变网络直径参数来达到适应网络状况的目的<br>	<br>*网络直径范围：<span class="hljs-number">2</span><span class="hljs-number">-7</span><br>	直径：max age：forward delay<br>		<span class="hljs-number">2</span>：<span class="hljs-number">10</span>s：<span class="hljs-number">7</span>s<br>		<span class="hljs-number">3</span>：<span class="hljs-number">12</span>s：<span class="hljs-number">9</span>s<br>		<span class="hljs-number">4</span>：<span class="hljs-number">14</span>s：<span class="hljs-number">10</span>s<br>		<span class="hljs-number">5</span>：<span class="hljs-number">16</span>s：<span class="hljs-number">12</span>s<br>		<span class="hljs-number">6</span>：<span class="hljs-number">18</span>s：<span class="hljs-number">13</span>s<br>		<span class="hljs-number">7</span>：<span class="hljs-number">20</span>s：<span class="hljs-number">15</span>s<br></code></pre></td></tr></table></figure>
+
+<h4 id="端口状态-1"><a href="#端口状态-1" class="headerlink" title="端口状态"></a>端口状态</h4><p>RSTP将端口状态缩减为3个：</p>
+<ol>
+<li>discarding：将STP中的disabled、blocking、listening划分为discarding</li>
+<li>learning</li>
+<li>forwarding</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">STP端口状态</th>
+<th align="center">RSTP端口状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">disabled</td>
+<td align="center">discarding</td>
+</tr>
+<tr>
+<td align="center">blocking</td>
+<td align="center">discarding</td>
+</tr>
+<tr>
+<td align="center">listening</td>
+<td align="center">discarding</td>
+</tr>
+<tr>
+<td align="center">learning</td>
+<td align="center">learning</td>
+</tr>
+<tr>
+<td align="center">forwarding</td>
+<td align="center">forwarding</td>
+</tr>
+</tbody></table>
+<h4 id="端口角色"><a href="#端口角色" class="headerlink" title="端口角色"></a>端口角色</h4><p>RSTP中的端口角色划分与STP一致；</p>
+<p>将alternate端口划分为：backup端口、alternate端口</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. alternate端口：<br>	替代端口，根端口的备份<br><span class="hljs-number">2</span>. backup端口：<br>	备份端口，指定端口的备份<br><span class="hljs-regexp">//</span>RSTP中阻塞端口可以收BPDU，但不能发BPDU<br></code></pre></td></tr></table></figure>
+
+<h4 id="BPDU"><a href="#BPDU" class="headerlink" title="BPDU"></a>BPDU</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. RST BPDU的flags字段使用了全<span class="hljs-number">8</span>位：（STP中只使用了<span class="hljs-number">0</span>，<span class="hljs-number">7</span>号位）<br>	·<span class="hljs-number">0</span>：TC标志位<br>	·<span class="hljs-number">1</span>：proposal标志位<br>		<span class="hljs-regexp">//</span>P/A机制<br>	·<span class="hljs-number">2</span>,<span class="hljs-number">3</span>：端口角色标志位<br>		<span class="hljs-regexp">//</span><span class="hljs-number">00</span> unknown、<span class="hljs-number">01</span> alternate/backup、<span class="hljs-number">02</span> root、<span class="hljs-number">03</span> designated<br>	·<span class="hljs-number">4</span>：learning标志位<br>	·<span class="hljs-number">5</span>：forwardiing标志位<br>		<span class="hljs-regexp">//</span>描述端口状态信息<br>	·<span class="hljs-number">6</span>：agreement标志位<br>		<span class="hljs-regexp">//</span>P/A机制<br>	·<span class="hljs-number">7</span>：TCA标志位<br><br><span class="hljs-number">2</span>. RST BPDU增加了version1 length字段：<br>	用来兼容STP协议报文<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221028151011292.png" srcset="/img/loading.gif" lazyload alt="image-2292"></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">3</span>. BPDU处理方式：<br>	·每个网桥都能自行产生和发送RST BPDU；<br>		<span class="hljs-regexp">//</span>STP中只有根桥产生配置BPDU<br>	·RST BPDU老化时间为<span class="hljs-number">3</span>*hello time；<br>		<span class="hljs-regexp">//</span>保活机制：一定时间内没有收到对端发送的RST BPDU，即判断连接中断<br>		<span class="hljs-regexp">//</span>该老化时间并非MAX age<br>	·阻塞端口也可以对收到的低优先级RST BPDU做出回应<br></code></pre></td></tr></table></figure>
+
+<h4 id="快速收敛机制"><a href="#快速收敛机制" class="headerlink" title="快速收敛机制"></a>快速收敛机制</h4><ol>
+<li><p>边缘端口机制</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">边缘端口：与用户终端相连的端口<br>特性：<br><span class="hljs-bullet">	1.</span> 端口通电后跳过forward delay时间，直接进入forwarding转发状态 <br><span class="hljs-bullet">	2.</span> 边缘端口收到BPDU后，会转变为非边缘端口<br><span class="hljs-bullet">	3.</span> 边缘端口UP/DOWN不会触发拓扑状态变更<br></code></pre></td></tr></table></figure>
+
+<p>//相当于边缘端口不参与RSTP计算</p>
+</li>
+<li><p>根端口快速切换</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs arduino">网桥的根端口故障后，若新的根端口对端的指定端口处于forwarding状态，则新的根端口跳过forward delay直接进入forwarding转发状态.<br><br>原理：<br>	如图，<span class="hljs-number">333</span>网桥的根端口链路故障后；<br>	<span class="hljs-number">1.</span> <span class="hljs-number">333</span>在<span class="hljs-number">3</span>个hello time内未从根端口收到对端网桥发来的RST BPDU；<br>		<span class="hljs-comment">//判断出链路故障</span><br>	<span class="hljs-number">2.</span> <span class="hljs-number">333</span>以自己为根桥对外发出RST BPDU；<br>	<span class="hljs-number">3.</span> <span class="hljs-number">222</span>网桥从指定端口收到低优先级的RST BPDU，主动回应高优先级的RST BPDU；<br>		<span class="hljs-comment">//RST BPDU的flags字段中的第5位为forwarding状态标志位</span><br>	<span class="hljs-number">4.</span> <span class="hljs-number">333</span>将AP端口切换根端口，收到<span class="hljs-number">222</span>发来的RST BPDU获取到对端指定端口为forwarding状态；<br>	<span class="hljs-number">5.</span> <span class="hljs-number">333</span>网桥新的根端口跳过forward delay时延直接进入forwarding状态；<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221028161503853.png" srcset="/img/loading.gif" lazyload alt="image-20853"></p>
+</li>
+<li><p>指定端口快速切换</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs less">·<span class="hljs-selector-tag">P</span>/<span class="hljs-selector-tag">A</span>机制：<br>	<span class="hljs-number">1</span>. 只会出现在如下环境：<br>		交换机新增链路、故障链路重新恢复（出现指定端口进入转发）<br>	<span class="hljs-number">2</span>. 新增链路一定会选举出一个指定端口，指定端口进入转发状态前，向对端网桥发送<span class="hljs-selector-tag">proposal</span> <span class="hljs-selector-tag">BPDU</span>；<br>	<span class="hljs-number">3</span>. 对端网桥收到<span class="hljs-selector-tag">proposal</span> <span class="hljs-selector-tag">BPDU</span>后，检查接收端口是否为根端口；<br>	<span class="hljs-number">4</span>. 对端网桥进行同步操作，完成后回复<span class="hljs-selector-tag">agreement</span> <span class="hljs-selector-tag">BPDU</span>；<br>		<span class="hljs-comment">//同步操作：将proposal BPDU接收端口、边缘端口之外的端口进行阻塞</span><br>		<span class="hljs-comment">//为什么要进行同步操作：防环（增加链路时可以产生临时环路）</span><br>	<span class="hljs-number">4</span>. 收到<span class="hljs-selector-tag">agreement</span> <span class="hljs-selector-tag">BPDU</span>后，网桥的指定端口跳过<span class="hljs-selector-tag">forward</span> <span class="hljs-selector-tag">delay</span>直接进入转发状态；<br>	<span class="hljs-number">5</span>. 对端网桥的其他端口也重复<span class="hljs-selector-tag">P</span>/<span class="hljs-selector-tag">A</span>机制，直至全网收敛<br>	<br>注意：<br>	·指定端口通过与对端网桥进行一次握手，快速进入转发状态<br>	·必须在点到点链路进行<br>	·采用递归方式计算，避免临时环路产生<br>	<span class="hljs-comment">//P/A机制主要解决STP必须被动等待30s时间确保全网收敛</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221028174653156.png" srcset="/img/loading.gif" lazyload alt="image-202156"></p>
+</li>
+<li><p>根端口、指定端口快速收敛前提：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. 接口必须时全双工模式<br>	<span class="hljs-regexp">//</span>全双工支持数据同时双向发送，半双工只能进行单向发送<br><span class="hljs-number">2</span>. 双方接口必须是点到点直连<br>	<span class="hljs-regexp">//</span>非点到点：使用hub<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>Backup端口出现情况：</p>
+<p>只有一种情况：<img src="/img/SE371.assets/image-20221028181129153.png" srcset="/img/loading.gif" lazyload alt="image-202229153"></p>
+<p>//出现物理环回口时</p>
+<p>//根桥上不一定只有指定端口，可能还存在BACKUP端口</p>
+<p><img src="/img/SE371.assets/image-20221028181247242.png" srcset="/img/loading.gif" lazyload alt="image-20221028181247242"></p>
+</li>
+</ol>
+<h4 id="拓扑改变处理-1"><a href="#拓扑改变处理-1" class="headerlink" title="拓扑改变处理"></a>拓扑改变处理</h4><ol>
+<li><p>触发条件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">只有非边缘端口转变为forwarding状态时，才会产生拓扑改变<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>拓扑改变处理：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. 拓扑变更后，网桥主动向其他指定端口和根端口发送TC BPDU报文；<br>	<span class="hljs-regexp">//</span><span class="hljs-number">2</span>*hello time内持续发送<br><span class="hljs-number">2</span>. 其他网桥收到TC BPDU后，清除其他所有端口学习的MAC地址；<br><span class="hljs-number">3</span>. 其他网桥也在<span class="hljs-number">2</span>*hello time内向指定端口、根端口发送TC BPDU报文；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>注意：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino">·取消TCN BPDU		<span class="hljs-comment">//每个网桥都能主动发送RST BPDU</span><br>·直接清除MAC地址，而不是等待forward delay时间<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="兼容STP"><a href="#兼容STP" class="headerlink" title="兼容STP"></a>兼容STP</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. RSTP端口连续<span class="hljs-number">3</span>次收到STP版本的BPDU，则端口协议自动切换为STP协议；<br>	<span class="hljs-regexp">//</span>切换到STP协议的RSTP端口，不会自动回切<br>	<span class="hljs-regexp">//</span>需要手动切换回RSTP协议：[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp mcheck<br><span class="hljs-number">2</span>. 切换STP协议的RSTP端口，将失去快速收敛特性<br><span class="hljs-number">3</span>. 出现STP、RSTP混用时，将STP设备放在网络边缘	<span class="hljs-regexp">//</span>目前STP设备很少使用<br></code></pre></td></tr></table></figure>
+
+<h4 id="配置命令"><a href="#配置命令" class="headerlink" title="配置命令"></a>配置命令</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs awk">·开启STP：<br>	[h3c]stp global enable<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp enable<br>	<span class="hljs-regexp">//</span>全局、端口模式开启stp<br>	<span class="hljs-regexp">//</span>默认开启mstp<br>	<br>·切换生成树允许模式：<br>	[h3c]stp mode &#123; stp | pvst | rstp | mstp&#125;<br>	<br>·配置网桥优先级<br>	[h3c]stp priority <span class="hljs-number">4096</span><br>	<span class="hljs-regexp">//</span>桥优先级默认<span class="hljs-number">32768</span>，步长<span class="hljs-number">4096</span><br>	<br>·配置端口开销：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp cost <span class="hljs-number">200</span><br>	[h3c]stp pathcost-standard &#123;dot1d-<span class="hljs-number">1998</span> | dot1t|legacy&#125;<br>	<span class="hljs-regexp">//</span>legacy为华三私有协议，默认<br><br>·配置端口优先级：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp port priority <span class="hljs-number">16</span><br>	<span class="hljs-regexp">//</span>范围<span class="hljs-number">0</span>-<span class="hljs-number">240</span>，默认<span class="hljs-number">128</span>，步长<span class="hljs-number">16</span><br><br>·定时器配置：<br>	[h3c]stp time &#123; hello | max-age | forward-delay&#125; 时间<br>	<span class="hljs-regexp">//</span>默认<span class="hljs-number">2</span>s，<span class="hljs-number">20</span>s，<span class="hljs-number">15</span>s<br>	<br>·网络直径配置：<br>	[h3c]stp bridge-diameter <span class="hljs-number">5</span><br>	<span class="hljs-regexp">//</span>默认<span class="hljs-number">7</span>,范围<span class="hljs-number">2</span>-<span class="hljs-number">7</span><br>	<br>·边缘端口：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp edge-port<br><br>·MCHECK操作：<br>	[h3c]stp global mcheck<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp mcheck<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="MSTP"><a href="#MSTP" class="headerlink" title="MSTP"></a>MSTP</h3><h4 id="STP-RSTP问题"><a href="#STP-RSTP问题" class="headerlink" title="STP/RSTP问题"></a>STP/RSTP问题</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">网桥上所有vlan共享一颗生成树，无法实现不同vlan在多条trunk链路上的负载负担；<br><span class="hljs-regexp">//</span>带宽浪费，不能实现负载负担<br></code></pre></td></tr></table></figure>
+
+<h4 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h4><ol>
+<li><p>基本思想：（多生成树协议）</p>
+<p>基于实例instance计算出多棵生成树，每个实例包含一个或多个vlan，每个vlan只能映射到一个实例。网桥通过配置多个实例，实现不同vlan组之间的负载分担。</p>
+</li>
+<li><p>MST域：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">MST域：拥有相同MST配置标志的网桥的集合<br>	<span class="hljs-number">1</span>. 域名：MST的域名具有唯一性<br>	<span class="hljs-number">2</span>. 修订级别：默认<span class="hljs-number">0</span><br>	<span class="hljs-number">3</span>. 配置摘要：由网桥vlan和实例映射关系生成的HMAC-MD5签名<br><span class="hljs-regexp">//</span>总根所在的MST域，称为根域；<br><span class="hljs-regexp">//</span>将网络划分为多个MST域，将拥有相同vlan映射关系和其他属性的网桥放在同一个域内<br><span class="hljs-regexp">//</span>MST域之间运行标准的RSTP协议<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>CIST：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">公共和内部 生成树：<br>	·全网设备经过计算得到的生成树；<br>	·由CST、IST共同构成；<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>CST:</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">公共生成树：<br>	·连接各个MST域的单生成树；<br>	<span class="hljs-regexp">//</span>将各个MST域视为逻辑上的独立交换机，这些逻辑交换机构成的RSTP生成树<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>IST：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">内部生成树：<br>	·MST域内的默认生成树，IST的实例号为0，默认存在；<br>	·没用映射到其他实例的vlan默认映射到实例0/IST上；<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>MSTI：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">多生成树实例：<br>	·一个MST域内可以存在多个MSTI实例，每个实例之间相互独立；<br>	·实例号从1开始<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>域根：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">·每个MST域的根桥；	<span class="hljs-regexp">//</span>IST的根桥<br>·IST域根是MST域内距离总根最近的桥；<br>·每个MSTI实例都能指定不同的网桥作为根桥；<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>总根：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">·整个网络中优先级最高的网桥；<br>·是<span class="hljs-built_in">CIST</span>的根桥；<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="端口角色-1"><a href="#端口角色-1" class="headerlink" title="端口角色"></a>端口角色</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs awk">端口角色基本和RSTP相同：<br>	·根端口<br>	·指定端口<br>	·alternate端口<br>	·backup端口<br>	·master端口：IST域根的根端口	<span class="hljs-regexp">//</span>域边界端口<br>		<span class="hljs-regexp">//</span>IST的根桥指向总根的根端口<br>		<span class="hljs-regexp">//</span>将MST域视为一个逻辑交换机，就是该逻辑交换机的根端口<br>		<br>注意：<br>	·当网络中只有一个MST域时，不会出现master端口；<br>	·master端口在所有MSTI实例上的端口角色都是一致的；<br>	·根域不存在master端口；<br>	·MST域有且只有一个master端口；<br></code></pre></td></tr></table></figure>
+
+<h4 id="BPDU-1"><a href="#BPDU-1" class="headerlink" title="BPDU"></a>BPDU</h4><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">MST BPDU中部分字段内容含义发送改变：<br>	·root <span class="hljs-built_in">id</span>：表示CIST总根<br>	·RPC：CIST外部路径开销<br>	·bridge <span class="hljs-built_in">id</span>：域根ID<br>	·port <span class="hljs-built_in">id</span>：CIST指定端口ID<br><br><span class="hljs-operator">*</span>MST专有字段：<br>	·version3 length：表示MST专有字段的长度<br>	·configuration <span class="hljs-built_in">id</span>：MST配置标识<br>	·IRPC：内部路径开销<br>	·CIST bridge ID：发送BPDU的桥<span class="hljs-built_in">id</span><br>	·CIST remaining hops：剩余跳数，默认<span class="hljs-number">20</span><br>		<span class="hljs-comment">//跳数被减少至0时，丢弃BPDU</span><br>	·MSTI configuration message：MSTI配置信息<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221029160957894.png" srcset="/img/loading.gif" lazyload alt="image-2094"><img src="/img/SE371.assets/image-20221029161241708.png" srcset="/img/loading.gif" lazyload alt="image-20221029161241708"></p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs fsharp"><span class="hljs-operator">*</span>MSTI configuration message<span class="hljs-operator">:</span><br>	·msti flags：标志位，<span class="hljs-number">1</span><span class="hljs-number">-7</span>位与RST BPDU定义相同<br>		<span class="hljs-comment">//第8位：master标志位，表明网桥是否为master桥</span><br>		<br>	·msti region root <span class="hljs-built_in">id</span>：MST实例的域根<span class="hljs-built_in">id</span><br>	·msti irpc：表示发送此BPDU的网桥到MSTI域根的路径开销<br>	·msti bridge priority：指定桥的优先级<br>	·msti port priority：发送此BPDU的端口的优先级<br>	<br>	·msti remaining hops：此BPDU在该MST实例中的剩余跳数<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221029162157595.png" srcset="/img/loading.gif" lazyload alt="image-20221029162157595"></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xquery">*CIST优先级向量：<br>	<span class="hljs-built_in">&#123;root</span><span class="hljs-built_in"> id</span> : <br>	erpc : <br>	rroutid : <br>	irpc : <br>	designate bridge<span class="hljs-built_in"> id</span> : <br>	designate port<span class="hljs-built_in"> id</span> : <br>	rcv port<span class="hljs-built_in"> id</span>&#125;<br>	//&#123;总<span class="hljs-built_in">根id</span>，外部路径开销，域<span class="hljs-built_in">根id</span>，内部路径开销，指定<span class="hljs-built_in">桥id</span>，指定端<span class="hljs-built_in">口id</span>，接收端<span class="hljs-built_in">口id</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xquery">*MSTI优先级向量：<br>	&#123;rroot<span class="hljs-built_in"> id</span> :<br>	irpc:<br>	designate bridge<span class="hljs-built_in"> id</span>:<br>	designate port<span class="hljs-built_in"> id</span>:<br>	rcv port<span class="hljs-built_in"> id</span>&#125;<br>	//&#123;域<span class="hljs-built_in">根id</span>，内部路径开销，指定<span class="hljs-built_in">桥id</span>，指定端<span class="hljs-built_in">口id</span>，接收端<span class="hljs-built_in">口id</span>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>CIST比较原则</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs markdown">CIST计算依据CIST优先级向量的比较：<br>比较原则：最小最优<br><br><span class="hljs-bullet">	1.</span> 比较总根ID；<br><span class="hljs-bullet">	2.</span> 比较外部路径开销ERPC；<br><span class="hljs-bullet">	3.</span> 比较域根ID；<br><span class="hljs-bullet">	4.</span> 比较内部路径开销IRPC；<br><span class="hljs-bullet">	5.</span> 比较指定桥ID；<br><span class="hljs-bullet">	6.</span> 比较指定端口ID；<br><span class="hljs-bullet">	7.</span> 比较接收端口ID；<br>//经过CIST计算，得到一颗贯穿全网的生成树<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>MSTI比较原则</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown">MSTI计算依据MSTI优先级向量比较：<br>比较原则：最小最优<br><br><span class="hljs-bullet">	1.</span> 比较MSTI域根id；<br><span class="hljs-bullet">	2.</span> 比较内部路径开销IRPC；<br><span class="hljs-bullet">	3.</span> 比较指定桥id；<br><span class="hljs-bullet">	4.</span> 比较指定端口id；<br><span class="hljs-bullet">	5.</span> 比较接收端口id；<br>//每一个MSTI实例都进行独立的比较计算，最后在MST域内生成多棵独立的生成树<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="MSTP计算"><a href="#MSTP计算" class="headerlink" title="MSTP计算"></a>MSTP计算</h4><p>MST BPDU中包含了CIST、MSTI计算需要的信息；因此MSTP不需要单独发送BPDU，也不需要任何定时器。</p>
+<p>//网桥在域内进行IST计算时，域内的MSTI实例也同时计算；</p>
+<ol>
+<li><p>CIST计算</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk">CIST计算：CST计算+IST计算<br><br>MST BPDU中携带了所有计算所需的信息内容，并且按照对应专有字段存储；<br><span class="hljs-regexp">//</span>网桥判断BPDU来自不同MST域后，不会解析该BPDU的MST专有字段；<br><span class="hljs-regexp">//</span>MSTI计算仅限于MST域内；<br><br>网络初始时，网桥以自己为总根、域根、指定桥向外发送MST BPDU；<br>其他网桥收到MST BPDU后，开始优先级向量比较，确定出总根，域根，指定桥和端口角色；<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>CST计算</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs awk">CST计算类似于RSTP计算；<br>	将不同的MST域视为逻辑独立的网桥，并且使用ISP域根进行表示；<br>	<span class="hljs-regexp">//</span>网络初始化时，MST域用域内优先级最高的网桥表示<br>	<br>计算过程：<br>	·逻辑网桥以自己为总根对外发送BPDU；<br>	·根据RSTP计算出根网桥（根域）；<br>		<span class="hljs-regexp">//</span>确定总根，根域<br>	·比较BPDU中的ERPC路径开销，确定每个逻辑网桥的master端口；<br>		<span class="hljs-regexp">//m</span>aster端口所在网桥重新选为域根<br>		<span class="hljs-regexp">//</span>一个MST域内可能存在多个域边界端口，按照BPDU优先级选举为指定端口、alternate端口、backup端口<br>	·阻塞选举出的alternate端口、backup端口；<br><br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>IST计算</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">根据CST计算出的域根，MST域内以域根为根桥，结合IRPC确定域内网桥端口角色，最后得到IST。<br>计算过程：<br>	·域内以域根为根桥，比较BDPU中的IRPC确定域内网桥的IST根端口；<br>	·比较BPDU优先级，确定IST网桥的指定端口、alternate端口、backup端口；<br>	·阻塞alternate端口、backup端口；<br><span class="hljs-regexp">//</span>每个MST域内都进行相同的计算，得到每个域的IST，结合之前的CST得到最终的CIST生成树<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>MSTI实例计算</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">在IST计算过程中，网桥通过交互<span class="hljs-keyword">BPDU中的MST配置信息可以同时确定各MSTI实例的根桥和端口角色。</span><br><span class="hljs-keyword"></span><br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>注意事项</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. CST计算，将MST域当作逻辑网桥进行RSTP计算，使用IST域根来表示这个逻辑网桥；<br>	<span class="hljs-regexp">//</span>此时的域根是MST域内比较BPDU选举出优先级最高的网桥<br>	<span class="hljs-regexp">//</span>等CST计算出master端口后，选举master端口所在网桥作为域根<br>	<span class="hljs-regexp">//</span>IST再根据mater桥，进行IST、MSTI计算<br><span class="hljs-number">2</span>. IST域根不一定是域中优先级最高的网桥，而是域中距离总根最近的网桥，即master端口所在桥<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="RSTP-STP互操作"><a href="#RSTP-STP互操作" class="headerlink" title="RSTP/STP互操作"></a>RSTP/STP互操作</h4><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fsharp">·MSTP网桥收到RSTP<span class="hljs-operator">/</span>STP BPDU后，将BPDU中的&#123;root <span class="hljs-built_in">id</span>,rpc,designate bridge <span class="hljs-built_in">id</span>,designate port <span class="hljs-built_in">id</span>&#125;对应到MSTP BPDU计算需要的优先级向量中；<br>·RSTP<span class="hljs-operator">/</span>STP网桥收到MSTP BPDU后，提取其中的&#123;root <span class="hljs-built_in">id</span>,erpc,rroot <span class="hljs-built_in">id</span>,designate port <span class="hljs-built_in">id</span>&#125;优先级向量，作为RSTP<span class="hljs-operator">/</span>STP计算需要使用的信息；<br><br><span class="hljs-comment">//RSTP/STP将MSTP域看作一个桥ID为域根ID的RSTP网桥</span><br><span class="hljs-comment">//MSTP网桥将RSTP网桥视为一个独立的MST域</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="P-A机制"><a href="#P-A机制" class="headerlink" title="P/A机制"></a>P/A机制</h4><p>MSTP支持RSTP所有快速收敛机制：边缘端口机制、根端口快速切换</p>
+<p>但P/A机制有所不同：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">在RSTP中：<br>	上游桥发送的RST <span class="hljs-keyword">BPDU报文中只有proposal置位；</span><br><span class="hljs-keyword"></span>	下游网桥判断接收端口为根端口后，进行同步操作，回复上游agreement置位的RST <span class="hljs-keyword">BPDU；</span><br><span class="hljs-keyword"></span>	最后上游网桥的指定端口立即进入转发状态。<br><br>在MSTP中：<br>	上游网桥发送的proposal <span class="hljs-keyword">BPDU中，proposal和agreement都进行置位；</span><br><span class="hljs-keyword"></span>	下游网桥进行同步操作后，回复上游网桥agreement <span class="hljs-keyword">BPDU；</span><br><span class="hljs-keyword"></span>	最后上游网桥的指定端口立即接入转发状态。 <br></code></pre></td></tr></table></figure>
+
+<h4 id="配置命令-1"><a href="#配置命令-1" class="headerlink" title="配置命令"></a>配置命令</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs awk">·区域配置：<br>	[h3c]stp region-configuration		<span class="hljs-regexp">//</span>进入区域配置视图<br>	[h3c-mst-region]region-name 区域名	  <span class="hljs-regexp">//</span>配置域名<br>	[h3c-mst-region]revision-level <span class="hljs-number">0</span>	<span class="hljs-regexp">//</span>配置修订级别，默认<span class="hljs-number">0</span><br>	<br>·vlan实例映射：<br>	[h3c-mst-region]instance 实例号 vlan <span class="hljs-number">10</span> <span class="hljs-number">20</span> <span class="hljs-number">30</span><br>	<span class="hljs-regexp">//</span>没有绑定实例的vlan，默认绑定在IST实例上<br>	<br>·激活区域配置：<br>	[h3c-mst-region]active region-configuration<br>	<span class="hljs-regexp">//</span>激活区域配置后，MSTP才能进行计算<br><br>·配置首选根桥/备份根桥：<br>	[h3c]stp instance 实例号 root &#123;primary | secondary&#125;<br>    <br>·配置端口识别/发送MSTP报文格式：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp compliance &#123;auto | dot1s | legacy&#125;<br>	<span class="hljs-regexp">//</span>与其他友商对接时，使得对端设备能够识别MST BPDU<br><br>--------------------------------------------------------------------------<br>·全局开启摘要监听：<br>	[h3c]stp global config-digest-snooping<br>·端口开启摘要侦听：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp config-digest-snooping<br>	<span class="hljs-regexp">//</span>摘要监听的作用：即使MST域配置相同，但由于各个厂商之间配置摘要采用的私有密钥不同，无法实现MSTP域内互通<br>	<span class="hljs-regexp">//</span>摘要监听配置后，发送给友商设备的MST BPDU会将配置摘要进行替换，不再必要配置摘要信息（即vlan映射关系不同，但域名、修订级别相同就判断为同一个MST域）<br><br>--------------------------------------------------------------------------<br>·下游设备配置NO agreement check特性<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp no-agreement-check<br>	<span class="hljs-regexp">//</span>主要解决RST MST交换机互联时P/A机制不同造成的不能快速切换指定端口<br>	<span class="hljs-regexp">//</span>上游为RST交换机，下游为MST；由于P/A机制不同，导致MST交换机收到的BPDU只有proposal置位，无法进行快速进入转发<br>	<span class="hljs-regexp">//</span>开启此配置后，下游MST交换机不再检查agreement是否置位<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221031152423620.png" srcset="/img/loading.gif" lazyload alt="image-20221031152423620"></p>
+<hr>
+<h3 id="保护机制"><a href="#保护机制" class="headerlink" title="保护机制"></a>保护机制</h3><h4 id="BPDU保护"><a href="#BPDU保护" class="headerlink" title="BPDU保护"></a>BPDU保护</h4><p>问题：边缘端口受到伪造的BPDU攻击</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">边缘端口不会收到BPDU，但是有人伪造BPDU发给边缘端口，或者将STP设备连接到边缘端口时；系统会自动将边缘端口转换为非边缘端口，重新进行生成树计算，引起网络拓扑震荡；<br></code></pre></td></tr></table></figure>
+
+<p>解决方法：配置BPDU保护</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">启用该功能后，若边缘端口收到BPDU，系统会将这些端口进行shutdown处理，只能通过手动配置方式重新启用端口。<br><br>命令：<br><span class="hljs-string">	[h3c]</span>stp bpdu-protection<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="根桥保护"><a href="#根桥保护" class="headerlink" title="根桥保护"></a>根桥保护</h4><p>问题：合法根桥收到优先级更高的配置BPDU，会导致目前根桥失去根桥角色，引发拓扑改变</p>
+<p>解决方法：根桥保护</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">根桥保护：<br>	启用该功能的端口，角色只能保持为指定端口，一旦指定端口收到优先级更高的BPDU，就立刻切换为listening状态，并且不再转发报文；<br>	<br>	端口从listening状态转变为forwarding状态期间，若没有收到更优先的BPDU，则端口恢复原有转发状态。<br>	<br>命令：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]stp root-protection<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="环路保护"><a href="#环路保护" class="headerlink" title="环路保护"></a>环路保护</h4><p>问题：由于链路阻塞或者单向链路故障，导致交换机无法从根端口收到上游设备发来的BPDU报文，待BPDU老化后重新选举根端口，导致环路产生。</p>
+<p><img src="/img/SE371.assets/image-20221031165134532.png" srcset="/img/loading.gif" lazyload alt="image-20221031165134532"></p>
+<p>解决方法：环路保护</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">环路保护：<br>	根端口收不到上游设备发来的BPDU，且保存的BPDU老化时，才会触发环路保护；<br>	该根端口在所有实例中的状态都固定为discarding状态，不进行任何报文转发；<br>	直至该端口重新收到上游发来的BPDU，重新选举为根端口；<br>	<br><span class="hljs-regexp">//</span>该配置只对根端口、alternate、backup端口生效<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="TC保护"><a href="#TC保护" class="headerlink" title="TC保护"></a>TC保护</h4><p>问题：交换机收到伪造的TC BPDU报文会清除MAC、ARP表项内容，频繁的删除操作会导致交换机负荷增加。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stata">拓扑改变时，交换机会发出TC报文，收到TC报文的网桥会立即清除端口保存的<span class="hljs-keyword">MAC</span>地址信息；<br>当有人故意伪造大量TC BPDU发送至网络中，会导致交换机频繁删除<span class="hljs-keyword">mac</span>表项信息，网络中存在未知单播造成的广播。<br></code></pre></td></tr></table></figure>
+
+<p>解决方法：TC保护</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">·设置设备在收到TC BPDU后的<span class="hljs-number">10</span>s内，进行MAC地址表项删除操作的最多次数<br>·监控该时间段内收到TC BPDU的报文数量是否大于用户限定次数<br>·若期间收到过多TC BPDU报文，则需要等待一定时间才能进行MAC地址表项清除操作<br><br>命令：<br>	·配置TC 保护<br><span class="hljs-string">		[h3c]</span>stp tc-protection<br>	·配置门限值<br><span class="hljs-string">		[h3c]</span>stp tc-protection threshold 最大值<br>		<span class="hljs-comment">//默认删除MAC地址表项最高次数为6</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="高可靠性技术"><a href="#高可靠性技术" class="headerlink" title="高可靠性技术"></a>高可靠性技术</h1><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h4 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h4><p>产品的可靠性：在规定条件、时间内完成规定的功能的能力</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. MTBF：平均无故障时间<br>	产品一次故障到下一次故障的平均时间（单位：小时）<br><span class="hljs-number">2</span>. MTTR：故障平均修复时间<br><br><span class="hljs-number">3</span>. 可靠性：MTBF/(MTBF+MTTR)<br>	<span class="hljs-regexp">//</span><span class="hljs-number">99.999</span>%：每年故障时间不超过<span class="hljs-number">5</span>分钟<br>	<span class="hljs-regexp">//</span><span class="hljs-number">99.9999</span>%：每年故障时间不超过<span class="hljs-number">30</span>秒<br></code></pre></td></tr></table></figure>
+
+<h4 id="链路级备份技术"><a href="#链路级备份技术" class="headerlink" title="链路级备份技术"></a>链路级备份技术</h4><ol>
+<li>链路聚合</li>
+<li>RRPP</li>
+<li>Smart link</li>
+</ol>
+<h4 id="设备级备份技术"><a href="#设备级备份技术" class="headerlink" title="设备级备份技术"></a>设备级备份技术</h4><ol>
+<li>设备自身备份技术</li>
+<li>路由器VRRP</li>
+<li>IRF堆叠</li>
+</ol>
+<hr>
+<h3 id="链路聚合"><a href="#链路聚合" class="headerlink" title="链路聚合"></a>链路聚合</h3><h4 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h4><p>作用：提高链路可靠性、线性增加带宽、分担负载</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. 聚合接口：<br>	手工配置的逻辑接口，分为二层、三层聚合接口；<br><span class="hljs-number">2</span>. 聚合组：<br>	一组以太网接口的集合。聚合接口创建时自动生成，编号与聚合接口编号一致；<br><span class="hljs-number">3</span>. 聚合成员端口状态：<br>	·selected状态：端口可以处于数据转发<br>	·unselected状态：不能转发数据<br><span class="hljs-number">4</span>. 聚合端口速率：<br>	selected成员端口的速率之和；<br><span class="hljs-number">5</span>. 操作key：<br>	根据成员端口的某些配置自动生成的配置组合，包括端口速率、双工模式、链路状态的配置。<br>	<span class="hljs-regexp">//</span>处于selected状态的成员端口拥有相同的操作key<br>	<span class="hljs-regexp">//</span>由参考端口的第二类配置生成<br><span class="hljs-number">6</span>. 第一类配置：<br>	此类配置不参与操作key的计算；<br>	<span class="hljs-regexp">//</span>例如MVRP、MSTP等<br><span class="hljs-number">7</span>. 第二类配置：<br>	同一个聚合组内，成员端口的第二类配置必须相同才能进入selected状态；<br>	<span class="hljs-regexp">//</span>例如QinQ配置、vlan配置、MAC地址学习配置<br><span class="hljs-number">8</span>. 参考端口：<br>	选择聚合成员端口的标准端口；<br><span class="hljs-number">9</span>.静态聚合：<br>	·端口不与对端设备交互信息；<br>	·选择参考端口根据本端设备信息；<br>	·用户手动创建、删除静态聚合组<br><span class="hljs-number">10</span>. 动态聚合：<br>	·端口的LACP协议自动使能，与对端设备交互LACP报文；<br>	·选择参考端口根据本端设备与对端设备交互信息；<br>	·用户手动创建、删除动态聚合组；<br><span class="hljs-number">11</span>. LACP协议：<br>	通过LACPDU与对端接口交互信息（系统优先级、mac地址、端口优先级、端口号、操作key）<br>	完成动态聚合的计算；<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="静态聚合"><a href="#静态聚合" class="headerlink" title="静态聚合"></a>静态聚合</h4><p>端口禁止启动LACP，设备不与对端设备交互信息，参考端口的选择依据本端设备信息；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">·参考端口选举：<br>	规则：高速全双工&gt;高速半双工&gt;低俗全双工&gt;低俗半双工<br>		端口优先级相同情况下，选择端口ID小的优先<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">·成员端口选择：<br>	<span class="hljs-number">1</span>. 与参考端口的属性配置、第二类配置相同的，并且处于<span class="hljs-meta">up</span>状态的端口处于selected状态；<br>	<span class="hljs-number">2</span>. 聚合组中处于selected状态的端口数量有限制：<br>		候选端口数目未达限制时，所有候选端口为selected状态；<br>		候选端口超过限制时，按照端口号从小到大顺序选择部分候选端口为selected状态；<br>	<span class="hljs-number">3</span>. 当成员端口都为<span class="hljs-meta">down</span>时，聚合组才会处于<span class="hljs-meta">down</span>状态，且成员端口都为unselected状态；<br></code></pre></td></tr></table></figure>
+
+<p>基本流程：选举参考端口、与参考端口对比、选举成员端口、确定成员端口状态</p>
+<h4 id="动态聚合"><a href="#动态聚合" class="headerlink" title="动态聚合"></a>动态聚合</h4><p>端口自动使能LACP协议，与对端设备交互LACP报文，参考端口的选举根据本端和对端设备交互的信息。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">·参考端口选举：<br>	<span class="hljs-number">1</span>. 比较设备ID：LACP优先级+MAC地址<br>		<span class="hljs-regexp">//</span>LACP优先级默认：<span class="hljs-number">32768</span><br>		<span class="hljs-regexp">//</span>选设备ID小的<br>	<span class="hljs-number">2</span>. 比较聚合端口ID：端口优先级+端口编号<br>		<span class="hljs-regexp">//</span>端口优先级默认：<br>		<span class="hljs-regexp">//</span>选聚合端口ID小的<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown">·成员端口选举：<br><span class="hljs-bullet">	1.</span> 与参考端口的属性配置、第二类配置相同的，且处于up状态的端口；<br><span class="hljs-bullet">	2.</span> 该端口的对端端口也与参考端口的配置属性相同，此时该端口接入selected状态；<br><span class="hljs-bullet">	3.</span> 聚合组中处于selected状态的端口数量有限：<br><span class="hljs-code">		按照端口ID从小到大顺序选择成员端口进入selected状态；</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>对聚合组操作时，该聚合组内的所有成员端口的属性配置都会改变；</p>
+<p>同时可以存在编号相同的聚合组，但聚合组分为二层、三层；</p>
+<p>二层端口只能加入二层链路聚合；</p>
+<p>三层端口只能加入三层链路聚合；</p>
+<h4 id="配置命令-2"><a href="#配置命令-2" class="headerlink" title="配置命令"></a>配置命令</h4><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-number">1</span>. 二层聚合：<br>	·[h3c]<span class="hljs-keyword">interface</span> bridge-aggregation 聚合端口号<br>	<br><span class="hljs-number">2</span>. 三层聚合：<br>	·[h3c]<span class="hljs-keyword">interface</span> route-aggregation 聚合端口号<br><br><span class="hljs-number">3</span>. 配置为动态聚合：<br>	·[h3c-bridge-agg1]link-aggregation mode dynamic<br><br><span class="hljs-number">4</span>. 配置LACP协议优先级：<br>	·[h3c]lacp system-priority <span class="hljs-number">32768</span><br>	<span class="hljs-comment">//默认32768</span><br>	<br><span class="hljs-number">5</span>. 配置端口优先级：<br>	·[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]link-aggregation port-priority <span class="hljs-number">32768</span><br>	<span class="hljs-comment">//默认32768</span><br><br><span class="hljs-number">6</span>. 配置聚合组的负载分担模式：<br>	[h3c]link-aggregation load-sharing mode<br>	&#123; destination-ip | destination-mac | destination-port<br>	  ingree-port | <span class="hljs-keyword">source</span>-ip | <span class="hljs-keyword">source</span>-mac | <span class="hljs-keyword">source</span>-port&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Smart-link"><a href="#Smart-link" class="headerlink" title="Smart link"></a>Smart link</h3><p>实现主备链路的冗余备份，具备快速收敛性能，速度达到亚秒级。</p>
+<p>特点：</p>
+<ol>
+<li>专用于双上行组网；</li>
+<li>收敛速度快，亚秒级别；</li>
+<li>配置简单，便于操作；</li>
+<li>主要用于接入到汇聚层；</li>
+</ol>
+<h4 id="基本概念-2"><a href="#基本概念-2" class="headerlink" title="基本概念"></a>基本概念</h4><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-number">1.</span> smart <span class="hljs-keyword">link</span>组：<br>	灵活链路组，包含了主、副端口；<br>	<span class="hljs-comment">//只能由两个端口</span><br><span class="hljs-number">2.</span> 主端口master：<br>	主端口优先进入转发状态；<br><span class="hljs-number">3.</span> 副端口slave：<br>	主端口的备份端口，当主端口故障时才能进入转发状态；<br>	<br><span class="hljs-number">4.</span> flush报文：<br>	smart <span class="hljs-keyword">link</span>组发送链路切换时，通过flush报文通知其他设备进行MAC地址表项、arp表项的刷新操作；<br>	只能在控制vlan内传播；<br><span class="hljs-number">5.</span> 发送控制vlan：<br>	flush报文在该vlan内发送；<br><span class="hljs-number">6.</span> 接收控制vlan：<br>	由于接收和处理flush报文的vlan；<br><span class="hljs-number">7.</span> 保护vlan：<br>	smart <span class="hljs-keyword">link</span>组允许转发的vlan；<br>	不同smart <span class="hljs-keyword">link</span>组的保护vlan各不相同；<br>	以MSTP实例映射；<br><br>注意：<br>	·不配置控制vlan，smart <span class="hljs-keyword">link</span>配置也能生效<br>		<span class="hljs-comment">//故障切换后需要等待300s的MAC地址老化时间，才能刷新mac表项内容</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="运作机制"><a href="#运作机制" class="headerlink" title="运作机制"></a>运作机制</h4><ol>
+<li><p>MAC地址转发表、ARP表项更新</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs stata">故障问题：<br>	当master链路故障，导致主副链路发送切换。但是网络上游设备的<span class="hljs-keyword">MAC</span>地址转发表项内容未改变，依然记录着从故障端口学习的<span class="hljs-keyword">MAC</span>地址信息；<br>	<span class="hljs-comment">//此问题同样出现在STP、private vlan中</span><br>	<br>解决办法：flush报文<br>	1. 不支持smart link的设备对接：<br>		自动通过流量刷新<span class="hljs-keyword">mac</span>地址表、arp表。但需要上行流量主动触发，且切换期间流量中断；<br>	2. 支持smart link的设备对接：<br>		smart link组从新链路发送flush报文；<br>		上游设备收到flush报文后，删除从保护vlan学习到的所有<span class="hljs-keyword">MAC</span>、ARP表项内容；<br>		触发ARP表项更新，刷新<span class="hljs-keyword">MAC</span>地址转发表项；<br>		刷新期间流量不会中断；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>链路备份机制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">转发状态的端口出现链路故障时，smart <span class="hljs-built_in">link</span>组会自动将此端口阻塞，并且将被阻塞的副端口切换为转发状态；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>角色抢占机制</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">默认不开启角色抢占机制；<br><br>当故障链路恢复后，自动阻塞的主端口会重新切换为转发状态；<br>同时副端口自动被阻塞，实现链路重新切换；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>负载分担机制</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">不同vlan的流量沿着不同smart <span class="hljs-built_in">link</span>组所确定的路径进行转发；<br>	//smart linkk组的保护vlan是通过MSTP实例映射来实现转发<br><br>通过一个端口配置为多个smart <span class="hljs-built_in">link</span>组的成员端口且端口转发状态不相同，实现不同vlan数据流量转发路径不同，达到负载分担效果。<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="协议缺点-1"><a href="#协议缺点-1" class="headerlink" title="协议缺点"></a>协议缺点</h4><p>smart link技术无法检测到上行设备的上行链路故障，不会触发链路切换导致流量中断；</p>
+<p>解决办法：配合monitor link技术使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">如下图：<br>	swb的上行链路发生故障，swd上smart <span class="hljs-built_in">link</span>组无法感知；<br>	导致流量依然从主端口进行转发，最后流量在swb的上行链路处中断；<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221106003247600.png" srcset="/img/loading.gif" lazyload alt="image-20221106003247600"></p>
+<h4 id="配置命令-3"><a href="#配置命令-3" class="headerlink" title="配置命令"></a>配置命令</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. 创建smart link组：<br>	[h3c]smart-link group <span class="hljs-number">1</span><br><span class="hljs-number">2</span>. 配置保护vlan：<br>	[H3C-smlk-group1]protected-vlan reference-instance <span class="hljs-number">1</span><br>	<span class="hljs-regexp">//</span>保护vlan：用户数据vlan<br>	<span class="hljs-regexp">//</span>每个smart link组都能配置不同的保护vlan<br>	<span class="hljs-regexp">//</span>保护vlan映射MST实例<br><span class="hljs-number">3</span>. 开启发送flush报文功能：<br>	[H3C-smlk-group1]flush enable control-vlan <span class="hljs-number">100</span><br>	<span class="hljs-regexp">//</span>需要指定控制vlan，负责传递flush报文<br>	<span class="hljs-regexp">//</span>smart link组成员端口需要放通控制vlan<br><span class="hljs-number">4</span>. 成员端口配置：<br>	[H3C-smlk-group1]port  g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span> &#123;primary | secondary&#125;<br>	[H3C-Gi1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]port smart-link group <span class="hljs-number">1</span> &#123;primary | secondary&#125;<br><span class="hljs-number">5</span>. 配置抢占功能：<br>	[H3C-smlk-group1]preemption mode role<br><span class="hljs-number">6</span>. 配置MSTP<br></code></pre></td></tr></table></figure>
+
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">1. smart <span class="hljs-built_in">link</span>、STP、RRPP同时只能运行一种<br>2. 配置smart <span class="hljs-built_in">link</span>时，需要在相关的接口上关闭STP特性<br>3. 配置smart <span class="hljs-built_in">link</span>时，要注意vlan 1出现环路：<br>	·trunk取消permit vlan 1<br>	·单独创建smart <span class="hljs-built_in">link</span>组用来保护vlan1<br>	·在MST实例中加入vlan 1<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Monitor-link"><a href="#Monitor-link" class="headerlink" title="Monitor link"></a>Monitor link</h3><h4 id="基本概念-3"><a href="#基本概念-3" class="headerlink" title="基本概念"></a>基本概念</h4><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs smali">1.<span class="hljs-built_in"> monitor </span>link组：<br>	监控链路组；由上行链路、下行链路组成。<br>2. 上行链路：<br>	被监控的链路，当上行链路所有成员端口都处于down状态时，monitor link组就为down状态<br>3. 下行链路：<br>	受动链路，当monitor link组状态发生改变时，也会让下行链路的状态的改变保持一致<br>//主要用于汇聚到核心层<br>//一个端口只能属于一个monitor link组<br></code></pre></td></tr></table></figure>
+
+<h4 id="运行机制"><a href="#运行机制" class="headerlink" title="运行机制"></a>运行机制</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">每个<span class="hljs-keyword">monitor</span> link组独立进行上行链路监控、下行链路联动，实现下行端口状态随上行端口状态变化。<br><br>·当上行链路的所有成员端口<span class="hljs-meta">down</span>时，<span class="hljs-keyword">monitor</span> link组状态变为<span class="hljs-meta">down</span>，同时下行链路状态保持一致变为<span class="hljs-meta">down</span>；<br></code></pre></td></tr></table></figure>
+
+<h4 id="配置命令-4"><a href="#配置命令-4" class="headerlink" title="配置命令"></a>配置命令</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-number">1</span>. 配置<span class="hljs-literal">monitor</span> link组：<br>	[H3C]<span class="hljs-literal">monitor</span>-link <span class="hljs-keyword">group</span> <span class="hljs-title">1</span><br><span class="hljs-number">2</span>. 配置上行、下行链路：<br>	[H3C-mtlk-group1]port  g1/<span class="hljs-number">0</span>/<span class="hljs-number">1</span> &#123;uplink | downlink&#125; <br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="RRPP"><a href="#RRPP" class="headerlink" title="RRPP"></a>RRPP</h3><p>RRPP快速环网保护协议：专用于以太网环的链路层协议，解决二层网络环路问题。</p>
+<p>优点：收敛速度比STP快，且收敛时间与网络节点数量无关，可应用于网络直接较大的网络中。</p>
+<p>RRP一般用在核心层；</p>
+<h4 id="基本概念-4"><a href="#基本概念-4" class="headerlink" title="基本概念"></a>基本概念</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. RRPP域：<br>	具有相同域ID、控制vlan且相同联通的设备构成的一个RRPP区域；<br><span class="hljs-number">2</span>. RRPP环：<br>	一个环形连接的以太网网络拓扑；<br>	<span class="hljs-regexp">//</span>根据RRPP环的级别区分：主环、子环<br>	<span class="hljs-regexp">//</span>主环级别：<span class="hljs-number">0</span>；有且只有一个<br><span class="hljs-number">3</span>. 主节点：<br>	每个环上有且只有一个主环；<br>	<span class="hljs-regexp">//</span>主动检测机制的发起者<br>	<span class="hljs-regexp">//</span>拓扑变化时执行操作的决策者<br><span class="hljs-number">4</span>. 传输节点：<br>	除主节点外的节点都是传输节点；<br>	<span class="hljs-regexp">//</span>负责检测设备直连RRPP链路状态，通知链路变化<br><span class="hljs-number">5</span>. 边缘节点：<br>	同时位于主环、子环的节点；<br>	<span class="hljs-regexp">//</span>对于主环：传输节点<br>	<span class="hljs-regexp">//</span>对于子环：边缘节点<br><span class="hljs-number">6</span>. 辅助边缘节点：<br>	同时位于主环、子环的节点；<br>	<span class="hljs-regexp">//</span>于边缘节点成对出现<br>	<span class="hljs-regexp">//</span>用于检测主环完整性，环路预防<br>-------------------------------------------------------------------------	<br><span class="hljs-number">7</span>. 控制vlan：<br>	用来传递RRPP协议报文；<br>	<span class="hljs-regexp">//</span>运行RRPP的接口都属于控制vlan<br>	<span class="hljs-regexp">//</span>主控制vlan、子控制vlan<br>	<span class="hljs-regexp">//</span>同一个RRPP域中，所有子环的子控制vlan都是相同的<br>	·子环的控制vlan在主环中被当作数据vlan<br><span class="hljs-number">8</span>. 数据vlan：<br>	用来传输用户数据报文；<br>	·子环的控制vlan在主环中被当作数据vlan<br>-------------------------------------------------------------------------<br><span class="hljs-number">9</span>. 主端口、副端口：<br>	每个节点都存在主副端口，手动指定；<br>	<span class="hljs-regexp">//</span>主节点的主端口：发送探测环路报文<br>	<span class="hljs-regexp">//</span>主节点的副端口：接收探测报文，环健康状态下只放通控制vlan，不放通数据vlan<br><span class="hljs-number">10</span>. 公共端口、边缘端口：<br>	边缘、辅助边缘节点接入主环的端口：公共端口；<br>	边缘、辅助边缘节点接入子环的端口：边缘端口；<br>-------------------------------------------------------------------------<br><span class="hljs-number">11</span>. 状态：<br>	RRPP环存在两种状态：complete健康状态、failed断裂状态<br>	主节点状态：complete健康状态、failed断裂状态<br>	传输节点状态：link-up状态、link-down状态、preforwarding状态<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221107014001969.png" srcset="/img/loading.gif" lazyload alt="image-20221107014001969"></p>
+<h4 id="运作机制-1"><a href="#运作机制-1" class="headerlink" title="运作机制"></a>运作机制</h4><ol>
+<li><p>Polling机制</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk">主节点主动检测环网健康状态：<br>	·主节点周期性从主端口发送hello报文，经过所有传输节点且在定时器超时前，从副端口接收收到hello报文；<br>	<span class="hljs-regexp">//</span>若环网链路正常，则能从副端口收到hello报文，并且保持副端口的阻塞状态；<br>	<span class="hljs-regexp">//</span>定时器超时后位收到hello报文，判断环网链路故障，主动放开副端口；<br>	<span class="hljs-regexp">//</span>正常情况，副端口只放通控制vlan<br>	·环网链路故障后，主节点主动发送common-flush-fdb报文，通知所有节点刷新MAC、ARP表项内容。<br>	<br>缺点：<br>	·发起者只能是主节点，链路故障检测不及时；<br>	·故障链路恢复后，检测不及时，存在临时环路；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>链路状态变化机制</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">·当传输节点、边缘/辅助边缘节点发现任何RRPP域的端口<span class="hljs-meta">down</span>时，立刻发送link-<span class="hljs-meta">down</span>报文通知主节点；<br>·主节点收到link-<span class="hljs-meta">down</span>报文后，立刻接触副端口阻塞状态，同时发送<span class="hljs-meta">common</span>-flush-fdb报文通知所有节点刷新MAC、ARP表项<br><br>优点：<br>	·发起者为传输节点，检测速度比polling机制更快；<br>缺点：<br>	·故障链路恢复后，检测不及时，存在临时环路；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>故障恢复端口阻塞机制</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">polling机制、链路状态检测机制都存在缺点：<br>	故障链路恢复后，主节点无法立刻检测到拓扑变化，等待时间内会产生临时环路。<br><br>·非主节点检测到接入RRPP域的故障端口重新UP后，立即对该端口进行阻塞<br>	<span class="hljs-regexp">//</span>阻塞该端口，但放通控制vlan<br>·等待主节点检测完链路状态后，主节点重新副端口，确认不会有环路后，解开该端口的阻塞<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>子环检测机制</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 前景：<br><span class="hljs-code">		子环的协议报文也是从子环的主节点的主端口发出，经过主环的边缘、辅助边缘节点的互联链路，重新在子环主节点的副端口接收；</span><br><span class="hljs-code"></span><br><span class="hljs-bullet">2.</span> 故障问题：<br><span class="hljs-code">		当主环的上同时出现两条及以上链路故障时（其中一条是子环协议报文经过的链路），导致子环的主节点无法从副端口收到自己的协议报文。</span><br><span class="hljs-code"></span><br><span class="hljs-bullet">3.</span> 子环检测机制：<br><span class="hljs-code">		·子环主节点发出hello报文后，启动fali定时器；</span><br><span class="hljs-code">		·定时器超时，子环主节点未收到hello报文；</span><br><span class="hljs-code">		·子环主节点迁移到failed状态，放开副端口的阻塞</span><br><span class="hljs-code"></span><br>//可以恢复主环、子环部分节点网络传输<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221107021603316.png" srcset="/img/loading.gif" lazyload alt="image-20221107021603316"></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">缺点：<br>	·双归属子环时，由于主环多条链路故障，因为子环检测机制会让所有子环的主节点都放开副端口，就会产生新的环路；<br></code></pre></td></tr></table></figure>
+
+<p><img src="/img/SE371.assets/image-20221107022309667.png" srcset="/img/loading.gif" lazyload alt="image-20221107022309667"></p>
+</li>
+<li><p>主环上子环协议报文通道状态检测机制</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-number">1.</span> 目的：解决双归属组网情况产生网络环路的缺陷。<br><span class="hljs-number">2.</span> 主要方法：在子环主节点放开副端口前，边缘节点阻塞边缘端口。<br><br>流程：<br>	·子环在边缘节点通过公共端口，周期性向主环内发送edge-hello报文；<br>		<span class="hljs-comment">//用来检测子环协议报文通道是否正常</span><br>		<span class="hljs-comment">//若辅助边缘节点能在规定时间内收到edge-hello报文，表示子环协议报文通道正常</span><br>	·辅助边缘节点判断子环协议报文通道故障，立即从边缘端口发送major-fault报文；<br>	·报文经过子环链路，传递给边缘节点；<br>	·边缘节点收到报文后，立即阻塞边缘端口，避免环路<br>	--------------------------------------------------------------<br>	·当子环协议报文通道恢复后，子环的主节点从副端口重新收到hello报文，重新阻塞副端口，同时从主端口发送<span class="hljs-keyword">common</span>-<span class="hljs-keyword">flush</span>-fdb报文；<br>	·边缘节点收到该<span class="hljs-keyword">common</span>-<span class="hljs-keyword">flush</span>-fdb报文后，主动放开边缘端口；<br><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>环组机制</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs verilog">前景：每个子环都会在边缘节点发送自己的<span class="hljs-keyword">edge</span>-hello报文，多个子环时会有共用子环协议报文通道的情况，导致出现过多重复的<span class="hljs-keyword">edge</span>-hello报文；<br><br>目的：减少边缘节点发送<span class="hljs-keyword">edge</span>-hello报文的数量，减小设备cpu负担。<br><br>·在边缘、辅助边缘节点上将部分子环配置为同一个环组；<br>·一个环组内，只有域id、环id最小的激活子环，才能发送<span class="hljs-keyword">edge</span>-hello报文；<br>·任意子环的<span class="hljs-keyword">edge</span>-hello报文，都会通知给其他激活子环；<br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="拓扑变化"><a href="#拓扑变化" class="headerlink" title="拓扑变化"></a>拓扑变化</h4><ol>
+<li><p>complete状态</p>
+<p>主节点的状态就表示整个环网的状态；</p>
+<p>环网所有链路都处于UP，且RRPP环处于complete健康状态，则主节点为complete状态；</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">此时，主节点从主端口周期性发送hello报文，经过传输节点，从副端口收到hello报文；<br>主节点阻塞副端口，只放通控制vlan。<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>failed状态</p>
+<p>主节点的状态表示整个环网的状态；</p>
+<p>当环网的某条链路故障后，主节点收到link-down报文后，切换为failed状态；</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs axapta">此时，主节点收到link-down报文，放通副端口；<br>从主端口发送<span class="hljs-keyword">common</span>-<span class="hljs-keyword">flush</span>-fdb报文，通知所有传输节点刷新MAC、ARP表项；<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lasso">若<span class="hljs-keyword">link</span><span class="hljs-params">-down</span>报文途中丢失，主节点未在规定时间内收到hello报文，则主动判断环网故障，对故障采用相应操作；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>preforwarding状态</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lasso">当传输节点上故障的RRPP端口、链路重新恢复时：<br>	传输节点迁移<span class="hljs-keyword">link</span><span class="hljs-params">-up</span>状态为preforwarding状态，并且将恢复端口进行 阻塞；<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>环网恢复</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs arduino">环网数据通道的恢复由主节点主动发起：<br>	·主节点从主端口周期性发送hello报文，等待环网所有故障链路恢复后，重新从副端口收到自己发出的hello报文；<br>	·主节点将状态从failed状态切换为completed状态，同时阻塞副端口；<br>	·主节点从主端口发送completed-flush-fdb报文通知节点刷新FDB；<br>	·preforwarding状态的传输节点收到completed-flush-fdb报文后，切换状态为link-up<br>	·传输节点同时放开临时阻塞的端口，刷新自己的FDB；<br>	<br>	<span class="hljs-comment">//若preforwarding状态的传输节点，在规定时间内没有收到主节点发来的completed-flush-fdb报文，则自行放开临时阻塞端口</span><br></code></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<h4 id="配置命令-5"><a href="#配置命令-5" class="headerlink" title="配置命令"></a>配置命令</h4><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-number">1.</span> 创建RRPP域：<br><span class="hljs-string">	[h3c]</span>rrpp domain <span class="hljs-number">1</span><br><span class="hljs-number">2.</span> 配置控制vlan：<br><span class="hljs-string">	[H3C-rrpp-domain1]</span>control-vlan <span class="hljs-number">101</span><br><span class="hljs-number">3.</span> 配置保护vlan：<br><span class="hljs-string">	[H3C-rrpp-domain1]</span><span class="hljs-keyword">protected</span>-vlan <span class="hljs-built_in">ref</span>erence-instance <span class="hljs-number">10</span> <span class="hljs-number">20</span> <span class="hljs-number">100</span><br><span class="hljs-number">4.</span> 配置节点类型：<br><span class="hljs-string">	[H3C-rrpp-domain1]</span>ring  环id <br>	node-mode &#123;master | transit | edge | assistant-edge&#125; <br>	primary-port g1/<span class="hljs-number">0</span>/<span class="hljs-number">1</span> secondary-port g1/<span class="hljs-number">0</span>/<span class="hljs-number">2</span> <br>	level &#123;<span class="hljs-number">0</span> | <span class="hljs-number">1</span>&#125;<br>	<span class="hljs-comment">//指定主、副端口，指定RRPP环级别</span><br>	<span class="hljs-comment">//RRPP环级别最低的作为主环，默认0</span><br>	<span class="hljs-comment">//主副端口必须为trunk端口，因为要传递控制vlan和保护vlan</span><br>	<span class="hljs-comment">//先配置主环、再子环</span><br>	<br><span class="hljs-number">5.</span> RRPP协议使能：<br><span class="hljs-string">	[h3c]</span>rrpp enable<br><span class="hljs-number">6.</span> RRPP环使能：<br><span class="hljs-string">	[H3C-rrpp-domain1]</span>ring 环id enable<br><br><span class="hljs-number">7.</span> 创建环组：<br><span class="hljs-string">	[h3c]</span>rrpp ring-group 环组id<br><span class="hljs-number">8.</span> 加入环组：<br><span class="hljs-string">	[h3c-rrpp-ring-group1]</span>domain <span class="hljs-number">1</span> ring 环id<br><span class="hljs-comment">//7.8命令只能配置在边缘、辅助边缘节点上</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="注意-2"><a href="#注意-2" class="headerlink" title="注意"></a>注意</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 不能指定一个已存在的VLAN作为RRPP的主控制VLAN<br><span class="hljs-bullet">2.</span> 未配置RRPP的设备上透传RRPP协议报文，必须保证该设备只有接入RRPP环的两个端口对控制vlan进行透传<br><span class="hljs-bullet">3.</span> RRPP端口必须为trunk类型<br><span class="hljs-bullet">4.</span> 必须先配置主环，再配置子环<br><span class="hljs-bullet">5.</span> 关闭主环前必须关闭所有子环<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="VRRP"><a href="#VRRP" class="headerlink" title="VRRP"></a>VRRP</h3><p>VRRP虚拟路由器冗余协议：避免由于局域网网关单点故障而导致的网络中断。</p>
+<h4 id="基本应用"><a href="#基本应用" class="headerlink" title="基本应用"></a>基本应用</h4><ol>
+<li><p>主备备份</p>
+<p>VRRP允许将多个路由器加入到一个备份组中，形成一台虚拟路由器；</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">主备备份方式只需一个备份组，选举优先级最高的路由器作为<span class="hljs-literal">master</span>，其他路由器选举为backup。<br><span class="hljs-literal">master</span>路由器承担网关功能，当<span class="hljs-literal">master</span>故障时，其他backup重新选举出新的<span class="hljs-literal">master</span>。<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>负载分担</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">·多个路由器同时承担业务，至少需要两个备份组，每个备份组都包含一个<span class="hljs-literal">master</span>和若干backup。<br>·各个备份组的<span class="hljs-literal">master</span>路由器各不相同。<br>·同一台物理路由器加入到多个备份组中，在不同备份组中有不同的优先级。<br><br>//即一台路由器同时担任一个备份组的<span class="hljs-literal">master</span>和其他备份组的backup<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="基本概念-5"><a href="#基本概念-5" class="headerlink" title="基本概念"></a>基本概念</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>.概述：<br>	·目前使用VRRPv2，提高了可靠性和简化配置；<br>	·VRRP协议报文使用固定的组播地址<span class="hljs-number">224.0</span>.<span class="hljs-number">0.18</span>发送；<br>	·虚拟路由器由lan上唯一的virtual router id标识；<br>	·虚拟路由器具有虚拟MAC地址：<span class="hljs-number">00</span>-<span class="hljs-number">00</span>-<span class="hljs-number">5</span>e-<span class="hljs-number">00</span>-<span class="hljs-number">01</span>-&#123;vrid&#125;<br><br><span class="hljs-number">2</span>.备份组：<br>	将一组允许VRRP协议的路由器划分在一起，统称为一个备份组；<br><span class="hljs-number">3</span>.虚拟路由器号VRID：<br>	由用户配置，用来区分不同的备份组。<br>	<span class="hljs-regexp">//</span>拥有相同VRID的路由器构成一个备份组<br>	<span class="hljs-regexp">//</span>范围<span class="hljs-number">1</span>-<span class="hljs-number">255</span><br><span class="hljs-number">4</span>.master、backup：<br>	备份组中优先级最高的路由器作为master，承担网关功能；<br>	其他路由器为backup，作为master的备份；<br><span class="hljs-number">5</span>.IP地址拥有者：<br>	ip address owner：接口真实IP地址与虚拟路由器IP地址相同的路由器<br><span class="hljs-number">6</span>.优先级priority：<br>	优先级<span class="hljs-number">0</span>-<span class="hljs-number">255</span>，越大越优先；<br>	<span class="hljs-regexp">//</span>默认<span class="hljs-number">100</span>，可配置范围为<span class="hljs-number">1</span>-<span class="hljs-number">254</span><br>	<span class="hljs-regexp">//</span><span class="hljs-number">0</span>为系统保留，<span class="hljs-number">255</span>为ip地址拥有者<br><span class="hljs-number">7</span>.抢占方式：<br>	配置此模式下的路由器，当发现自己的优先级比当前master优先，则对外发送vrrp报文，取代愿有master；<br>	<span class="hljs-regexp">//i</span>p地址拥有者始终工作在抢占方式下<br><span class="hljs-number">8</span>.非抢占方式：<br>	只有master路由器故障时，高优先级的路由器才能选举为新的master；<br><span class="hljs-number">9</span>.认证类型：<br>	·无认证：no authentication<br>	·简单字符认证：simple clear text password<br>	·MD5认证<br></code></pre></td></tr></table></figure>
+
+<h4 id="选举过程"><a href="#选举过程" class="headerlink" title="选举过程"></a>选举过程</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs crmsh"><span class="hljs-number">1</span>. 路由器根据优先级确定角色：<br>	·最高优先级的成为<span class="hljs-keyword">master</span><br><span class="hljs-title">2</span>. <span class="hljs-literal">master</span>路由器定时发送vrrp通告报文，标识<span class="hljs-literal">master</span>工作正常；<br><span class="hljs-number">3</span>. backup路由器启用定时器等待vrrp通告报文；<br><br><span class="hljs-literal">master</span>切换：<br>	<span class="hljs-number">1</span>. 非抢占方式：<br>		只要<span class="hljs-literal">master</span>没有故障，则备份组中<span class="hljs-literal">master</span>角色一直保持；<br>	<span class="hljs-number">2</span>. 抢占方式：<br>		当backup收到vrrp通告报文，并且对比发现自己优先级比当前<span class="hljs-literal">master</span>优先级高，<br>		则自动选举成为新的<span class="hljs-literal">master</span>；<br>	<span class="hljs-number">3</span>. backup的定时器超时前，没有收到vrrp通告报文，则判断<span class="hljs-literal">master</span>故障；<br>		backup以自己为<span class="hljs-literal">master</span>对外发送vrrp报文，经过比较优先级后重新选举新的<span class="hljs-literal">master</span>；<br></code></pre></td></tr></table></figure>
+
+<h4 id="监视接口"><a href="#监视接口" class="headerlink" title="监视接口"></a>监视接口</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">问题：vrrp备份组无法感知上行链路的故障，当<span class="hljs-literal">master</span>的上行链路故障，会导致流量中断；<br>解决办法：监视指定接口功能<br>	·当上行链路的接口down、removed状态时，该路由器自动降低自己的优先级；<br>	·使得backup比<span class="hljs-literal">master</span>的优先级高，重新选举新的<span class="hljs-literal">master</span>承担转发；<br></code></pre></td></tr></table></figure>
+
+<h4 id="协议状态机"><a href="#协议状态机" class="headerlink" title="协议状态机"></a>协议状态机</h4><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">VRRP有三种状态：<span class="hljs-literal">master</span>、backup、initialize<br>	<span class="hljs-number">1</span>. initialize状态：<br>		·路由器初始化时进入initialize状态，收到接口<span class="hljs-literal">start</span> up后，进入backup或<span class="hljs-literal">master</span>；<br>		·initialize状态的路由器不会对vrrp通告报文做任何处理；<br>	<br>	<span class="hljs-number">2</span>. <span class="hljs-literal">master</span>状态：<br>		·定期发送vrrp通告报文；<br>		·响应对虚拟IP的ARP请求，转发目的MAC为虚拟MAC的报文；<br>		·若为IP地址拥有者，则转发目的IP为虚拟IP的报文；<br>		·收到优先级更大的vrrp报文，转变为backup；<br>		·收到接口shutdown事件，转变为initialize；<br>		<br>	<span class="hljs-number">3</span>. backup状态：<br>		·接收<span class="hljs-literal">master</span>的vrrp通告报文；<br>		·不响应对虚拟IP的ARP请求，不转发目的MAC为虚拟MAC的ip报文；<br>		·当<span class="hljs-literal">master</span>故障时，重新参与<span class="hljs-literal">master</span>选举；<br>		·收到接口shutdown事件，转为initialize状态；<br></code></pre></td></tr></table></figure>
+
+<h4 id="配置命令-6"><a href="#配置命令-6" class="headerlink" title="配置命令"></a>配置命令</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-number">1</span>. 创建备份组，配置虚拟IP：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]vrrp vrid <span class="hljs-number">1</span> virtual-ip <span class="hljs-number">10.0</span>.<span class="hljs-number">0.254</span><br><span class="hljs-number">2</span>. 配置路由器在备份组中的优先级：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]vrrp vrid <span class="hljs-number">1</span> priority <span class="hljs-number">100</span><br>	<span class="hljs-regexp">//</span>优先级默认<span class="hljs-number">100</span><br><span class="hljs-number">3</span>. 配置抢占方式和抢占延迟：<br>	[h3c-g1<span class="hljs-regexp">/0/</span><span class="hljs-number">1</span>]vrrp vrid <span class="hljs-number">1</span> preempt-mode delay 延时<br><span class="hljs-number">4</span>. 创建与接口关联的track项：<br>	[h3c]track <br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>H3CSE-RS-371笔记</div>
+      <div>https://luoxmoooo.github.io/2022/11/15/SE371/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Luoxmoooo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/15/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://luoxmoooo.github.io/2022/11/15/SE371/';
+          this.page.identifier = '/2022/11/15/SE371/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
